@@ -89,7 +89,7 @@ const HeroAnimation = () => {
       const cy = canvas.height / 2;
 
       // Faster rotation for small screens
-      const rotationSpeed = window.innerWidth < 768 ? 0.0001 : 0.00005;
+      const rotationSpeed = window.innerWidth < 768 ? 0.0002 : 0.00005;
       angleRef.current += rotationSpeed * 60;
       smoothRotationRef.current +=
         (angleRef.current - smoothRotationRef.current) * 0.05;

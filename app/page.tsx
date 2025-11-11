@@ -1,11 +1,14 @@
 "use client";
 import { useEffect } from "react";
-import AboutSection from "../components/homePageComponents/aboutSection";
-import HeroSection from "../components/homePageComponents/heroSection";
-import ServiceSection from "../components/homePageComponents/serviceSection";
-import MissionAndVision from "../components/homePageComponents/missionAndVision";
-import GlobalStatusBar from "../components/homePageComponents/globalStatusBar";
-import ContactSection from "../components/homePageComponents/contactSection";
+import dynamic from "next/dynamic";
+
+const HeroSection = dynamic(() => import("../components/homePageComponents/heroSection"));
+const AboutSection = dynamic(() => import("../components/homePageComponents/aboutSection"));
+const ServiceSection = dynamic(() => import("../components/homePageComponents/serviceSection"));
+const MissionAndVision = dynamic(() => import("../components/homePageComponents/missionAndVision"));
+const GlobalStatusBar = dynamic(() => import("../components/homePageComponents/globalStatusBar"));
+const ContactSection = dynamic(() => import("../components/homePageComponents/contactSection"));
+
 
 export default function HomePage() {
   useEffect(() => {

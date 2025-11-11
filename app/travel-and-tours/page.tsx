@@ -1,5 +1,7 @@
-import DestinationCard from "../../components/travelPageComponents/destinationCard";
-import TravelHero from "../../components/travelPageComponents/travelHero";
+import dynamic from "next/dynamic";
+
+const TravelHero = dynamic(() => import("../../components/travelPageComponents/travelHero"));
+const DestinationCard = dynamic(() => import("../../components/travelPageComponents/destinationCard"));
 
 const TravelAndTours = ()=>{
 

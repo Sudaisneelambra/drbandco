@@ -51,7 +51,7 @@ function ServiceCard({ data, index }: { data: ServiceItem; index: number }) {
 
   return (
     <motion.article
-      initial={{ opacity: 0, y: 40 }}
+      initial={false} 
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, amount: 0.3 }}
       transition={{ duration: 0.9, ease: "easeOut", delay: index * 0.05 }}
@@ -101,7 +101,6 @@ function ServiceCard({ data, index }: { data: ServiceItem; index: number }) {
         >
           <div className="relative h-64 md:h-[18rem] rounded-2xl overflow-hidden border border-[#d4af37]/25">
             <motion.img
-              key={active}
               src={data.images[active].src}
               alt={data.images[active].alt}
               initial={{ opacity: 0, scale: 1.05 }}
