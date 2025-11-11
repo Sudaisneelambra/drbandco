@@ -1,11 +1,11 @@
 "use client";
 import { useEffect } from "react";
-import AboutSection from "../components/aboutSection";
-import HeroSection from "../components/heroSection";
-import ServiceSection from "../components/serviceSection";
-import MissionAndVision from "../components/missionAndVision";
-import GlobalStatusBar from "../components/globalStatusBar";
-import ContactSection from "../components/contactSection";
+import AboutSection from "../components/homePageComponents/aboutSection";
+import HeroSection from "../components/homePageComponents/heroSection";
+import ServiceSection from "../components/homePageComponents/serviceSection";
+import MissionAndVision from "../components/homePageComponents/missionAndVision";
+import GlobalStatusBar from "../components/homePageComponents/globalStatusBar";
+import ContactSection from "../components/homePageComponents/contactSection";
 
 export default function HomePage() {
   useEffect(() => {

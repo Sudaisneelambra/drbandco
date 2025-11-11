@@ -1,13 +1,14 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, use } from "react";
 import { Menu, X, ArrowUpRight } from "lucide-react";
-import { useRouter } from "next/navigation";
+import { useRouter, usePathname } from "next/navigation";
 
 export default function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const router = useRouter();
+  const pathName = usePathname();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -29,6 +30,10 @@ export default function Navbar() {
 
   const goToNavigation = (target: string) => {
     if (target === "home") {
+      if(pathName ==='/') {
+        window.scrollTo({ top: 0, behavior: "smooth" });
+        return
+      }
       router.push(`/`);
       return;
     }

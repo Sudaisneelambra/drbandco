@@ -11,26 +11,8 @@ const Logistics = ()=>{
 
         return(
             <>
-                <div className=" pt-10">
-                    <h1 className="bg-[red]">logistics</h1>
-                    <h1>logistics</h1>
-                    <h1>logistics</h1>
-                    <h1>logistics</h1>
-                    <h1>logistics</h1>
-                    <h1>logistics</h1>
-                    <h1>logistics</h1>
-                    <h1>logistics</h1>
-                    <h1>logistics</h1>
-                    <h1>logistics</h1>
-                    <h1>logistics</h1>
-                    <h1>logistics</h1>
-                    <h1>logistics</h1>
-                    <h1>logistics</h1>
-                    <h1>logistics</h1>
-                    <h1>logistics</h1>
-                    <h1>logistics</h1>
-                    <h1>logistics</h1>
-                    <h1>logistics</h1>
+                <div className=" pt-10 w-full h-screen flex justify-center items-center">
+                    <h1 className="">logistics</h1>
                 </div>
 
             </>

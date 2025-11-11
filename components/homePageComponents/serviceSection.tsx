@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 import { useState, useEffect, useRef } from "react";
 import Link from "next/link";
 import { Plane, Ship, ChevronLeft, ChevronRight } from "lucide-react";
-import {ServiceItem} from '../types/serviceCard'
+import {ServiceItem} from '../../types/serviceCard'
 import Image from "next/image";
 
 function ServiceCard({ data, index }: { data: ServiceItem; index: number }) {
