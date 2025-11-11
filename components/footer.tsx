@@ -1,0 +1,243 @@
+"use client";
+
+import { useRef } from "react";
+import {
+  Facebook,
+  Twitter,
+  Instagram,
+  Linkedin,
+  Mail,
+  MessageCircle,
+  Phone,
+  ArrowUpRight,
+} from "lucide-react";
+import Link from "next/link";
+import {useRouter, usePathname } from "next/navigation";
+
+
+
+const Footer = () => {
+  const currentYear = new Date().getFullYear();
+  const footerRef = useRef<HTMLDivElement | null>(null);
+  const router = useRouter();
+  const pathname = usePathname();
+
+  type NavLink =
+  | { name: string; type: "route"; href: string }
+  | { name: string; type: "scroll"; target: string };
+
+  const navLinks: NavLink[] = [
+    { name: "Tours & Travel", type: "route", href: "/" },
+    { name: "Logistics", type: "route", href: "/logistics" },
+    { name: "About Us", type: "scroll", target: "about-section" },
+    { name: "Services", type: "scroll", target: "service-section" },
+    ];
+
+    const handleScroll = (target: string)=>{
+        if (pathname === "/") {
+       
+            document.getElementById(target)?.scrollIntoView({ behavior: "smooth" });
+        } else {
+            sessionStorage.setItem("scrollTarget", target);
+            router.push("/");
+        }
+    }
+
+  const supportLinks = [
+    "Help Center",
+    "Contact Us",
+    "Privacy Policy",
+    "Terms of Service",
+  ];
+
+
+  return (
+    <footer
+      ref={footerRef}
+      className="relative bg-[#0a0a0a] border-t border-yellow-500/20 text-gray-300 overflow-hidden"
+    >
+
+      {/* Decorative Top Border */}
+      <div className="h-px bg-gradient-to-r from-transparent via-yellow-500/20 to-transparent" />
+
+      {/* Main Footer */}
+      <div className="mx-auto px-6 lg:px-16 py-16 lg:py-20">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-8">
+          {/* Company */}
+          <div className="space-y-6">
+            {/* Logo */}
+            <div className="flex flex-col items-start">
+              <div className="relative w-16 h-16 flex items-center justify-center mb-4">
+                <div className="absolute inset-0 rounded-full border border-yellow-500/20" />
+                <div className="absolute inset-2 rounded-full border border-yellow-500/10" />
+                <div className="relative w-12 h-12 rounded-full border-2 border-yellow-500 flex items-center justify-center bg-gradient-radial from-yellow-500/10 to-transparent">
+                  <span className="text-2xl font-serif font-bold bg-gradient-to-br from-yellow-400 via-yellow-500 to-yellow-600 bg-clip-text text-transparent">
+                    D
+                  </span>
+                </div>
+              </div>
+
+              <div className="flex items-center space-x-2">
+                <div className="w-6 h-px bg-gradient-to-r from-transparent to-yellow-400" />
+                <span className="text-[11px] tracking-[0.3em] font-light uppercase bg-gradient-to-r from-yellow-300 via-yellow-400 to-yellow-600 bg-clip-text text-transparent">
+                  DrB & Co
+                </span>
+              </div>
+              <span className="text-[7px] tracking-[0.3em] text-yellow-500/50 uppercase mt-1">
+                Established 2020
+              </span>
+            </div>
+
+            <p className="text-gray-400 text-[11px] leading-relaxed tracking-wide">
+              To give the best from us, without any compromise on quality.
+            </p>
+
+            {/* Social Icons */}
+            <div className="flex gap-3 pt-2">
+              {[Facebook, Twitter, Instagram, Linkedin].map((Icon, i) => (
+                <a
+                  key={i}
+                  href="#"
+                  className="group relative w-9 h-9 flex items-center justify-center border border-yellow-500/20 hover:border-yellow-400 transition-all duration-500"
+                >
+                  <Icon className="w-4 h-4 text-gray-400 group-hover:text-yellow-400 transition-colors duration-500" />
+                  <div className="absolute inset-0 bg-yellow-400/0 group-hover:bg-yellow-400/10 transition-all duration-500" />
+                </a>
+              ))}
+            </div>
+          </div>
+
+          {/* Quick Links */}
+          <div className="space-y-6">
+            <div className="flex items-center space-x-3">
+              <h3 className="text-[11px] font-medium tracking-[0.25em] uppercase text-yellow-400">
+                Quick Links
+              </h3>
+              <div className="flex-1 h-px bg-gradient-to-r from-yellow-400/30 to-transparent" />
+            </div>
+            <ul className="space-y-3">
+              {navLinks.map((link, index) => (
+                <li key={`link-${link.name}` || index} >
+                    {link.type === "route" ? (
+                        <Link
+                            href={link.href}
+                            className="inline-flex cursor-pointer items-center gap-2 group text-[11px] text-gray-400 hover:text-yellow-400 transition-colors duration-500"
+                            >
+                            <span className="tracking-wider">{link.name}</span>
+                            <ArrowUpRight className="w-3 h-3 opacity-0 group-hover:opacity-100 -translate-x-2 group-hover:translate-x-0 transition-all duration-500" />
+                        </Link>
+                    ) : (
+                        <button
+                            type="button"
+                            area-label={`Go to ${link.name}`}
+                            onClick={() => handleScroll(link.target)}
+                            className="inline-flex cursor-pointer items-center gap-2 group text-[11px] text-gray-400 hover:text-yellow-400 transition-colors duration-500"
+                            >
+                            <span className="tracking-wider">{link.name}</span>
+                            <ArrowUpRight className="w-3 h-3 opacity-0 group-hover:opacity-100 -translate-x-2 group-hover:translate-x-0 transition-all duration-500" />
+                        </button>
+                    )}
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* Support */}
+          <div className="space-y-6">
+            <div className="flex items-center space-x-3">
+              <h3 className="text-[11px] font-medium tracking-[0.25em] uppercase text-yellow-400">
+                Support
+              </h3>
+              <div className="flex-1 h-px bg-gradient-to-r from-yellow-400/30 to-transparent" />
+            </div>
+            <ul className="space-y-3">
+              {supportLinks.map((link) => (
+                <li key={link}>
+                  <a
+                    href="#"
+                    className="inline-flex justify-center items-center gap-2 group text-[11px] text-gray-400 hover:text-yellow-400 transition-colors duration-500"
+                  >
+                    <span className="tracking-wider">{link}</span>
+                    <ArrowUpRight className="w-3 h-3 opacity-0 group-hover:opacity-100 -translate-x-2 group-hover:translate-x-0 transition-all duration-500" />
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* Newsletter / Contact */}
+          <div className="space-y-6">
+            <div className="flex items-center space-x-3">
+              <h3 className="text-[11px] font-medium tracking-[0.25em] uppercase text-yellow-400">
+                Get in Touch
+              </h3>
+              <div className="flex-1 h-px bg-gradient-to-r from-yellow-400/30 to-transparent" />
+            </div>
+            <p className="text-gray-400 text-[11px] tracking-wide leading-relaxed">
+              Have a question or project in mind? Let ’ s connect and discuss your needs.
+            </p>
+
+            <button className="group relative w-full h-11 bg-gradient-to-r from-yellow-400 to-yellow-500 overflow-hidden transition-all duration-500 hover:shadow-[0_0_30px_rgba(212,175,55,0.4)]">
+              <span className="relative z-10 flex items-center justify-center space-x-2 text-[10px] font-medium tracking-[0.2em] uppercase text-black">
+                <MessageCircle className="w-3.5 h-3.5" />
+                <span>Contact Us</span>
+              </span>
+              <div
+                className="absolute inset-0 bg-gradient-to-r from-transparent via-white/90 to-transparent shimmer"
+                style={{ transform: "translateX(-100%)" }}
+              />
+              <style jsx>{`
+                @keyframes shimmer {
+                  100% {
+                    transform: translateX(100%);
+                  }
+                }
+                .shimmer {
+                  animation: shimmer 2s infinite linear;
+                }
+              `}</style>
+            </button>
+
+            <div className="pt-4 space-y-2 border-t border-yellow-400/10">
+              <a
+                href="tel:+1234567890"
+                className="flex items-center space-x-2 text-[10px] text-gray-400 hover:text-yellow-400 transition-colors duration-300"
+              >
+                <Phone className="w-3.5 h-3.5" />
+                <span className="tracking-wider">+123 456 7890</span>
+              </a>
+              <a
+                href="mailto:info@drbco.com"
+                className="flex items-center space-x-2 text-[10px] text-gray-400 hover:text-yellow-400 transition-colors duration-300"
+              >
+                <Mail className="w-3.5 h-3.5" />
+                <span className="tracking-wider">info@drbco.com</span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* Divider */}
+      <div className="h-px bg-gradient-to-r from-transparent via-yellow-400/20 to-transparent" />
+
+      {/* Bottom Bar */}
+      <div className="max-w-7xl mx-auto px-6 lg:px-16 py-8">
+        <div className="flex flex-col md:flex-row justify-between items-center gap-6">
+          <div className="flex items-center space-x-3">
+            <div className="w-8 h-px bg-gradient-to-r from-transparent to-yellow-400/40" />
+            <p className="text-gray-400 text-[9px] tracking-[0.2em] uppercase">
+              © {currentYear} DrB & Co. All rights reserved.
+            </p>
+            <div className="w-8 h-px bg-gradient-to-l from-transparent to-yellow-400/40" />
+          </div>
+        </div>
+      </div>
+
+      {/* Bottom Decorative Border */}
+      <div className="h-px bg-gradient-to-r from-transparent via-yellow-400/10 to-transparent" />
+    </footer>
+  );
+};
+
+export default Footer;
