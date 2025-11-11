@@ -1,11 +1,15 @@
-'use client';
+"use client";
 
 import { ArrowRight } from 'lucide-react';
 import HeroAnimation from './heroAnimation';
-import Link from 'next/link';
 
-export default function HeroSection() {
+
+const  HeroSection =({moveToServiceSection}:{moveToServiceSection: () => void;})=> {
   const isVisible = true;
+
+  const scrollToService = ()=>{
+    moveToServiceSection()
+  }
 
   return (
     <header
@@ -31,7 +35,7 @@ export default function HeroSection() {
           }`}
         >
           <div className="w-10 h-[1px] bg-gradient-to-r from-transparent to-[#C9A25E]" />
-          <span className="text-[11px] tracking-[0.25em] uppercase text-[#d4af37] font-extralight">
+          <span className="text-[10px] tracking-[0.25em] uppercase text-[#d4af37] font-extralight">
             Established 2020
           </span>
           <div className="w-10 h-[1px] bg-gradient-to-l from-transparent to-[#C9A25E]" />
@@ -39,7 +43,7 @@ export default function HeroSection() {
 
         {/* SEO Primary Heading */}
         <h1
-          className={`font-serif font-bold leading-[1.1] text-5xl lg:text-6xl tracking-tight transition-all duration-1000 delay-150 ${
+          className={`font-serif font-bold leading-[1.1] text-4xl lg:text-5xl tracking-tight transition-all duration-1000 delay-150 ${
             isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'
           }`}
         >
@@ -50,7 +54,7 @@ export default function HeroSection() {
 
         {/* Tagline */}
         <p
-          className={`mt-8 mb-14 transition-all duration-1000 delay-300 text-[13px] sm:text-[15px] text-white/70 font-light leading-relaxed tracking-wide ${
+          className={`mt-8 mb-14 transition-all duration-1000 delay-300 text-[12px] sm:text-[13px] text-white/70 font-light leading-relaxed tracking-wide ${
             isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'
           }`}
         >
@@ -67,8 +71,8 @@ export default function HeroSection() {
             isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'
           }`}
         >
-          <Link
-            href="/services"
+          <button
+            onClick={scrollToService}
             aria-label="Explore DrB & Co services"
             className="group relative flex items-center justify-center space-x-3 px-12 py-4 rounded-sm border border-[#d4af37]/70 bg-gradient-to-br from-black via-black to-[#1a1a1a] hover:from-[#d4af37] hover:to-[#f4e5a3] transition-all duration-700 min-w-[220px]"
           >
@@ -76,7 +80,7 @@ export default function HeroSection() {
               Explore Services
             </span>
             <ArrowRight className="w-4 h-4 text-[#d4af37] group-hover:text-white transform group-hover:translate-x-1 transition-all duration-500" />
-          </Link>
+          </button>
         </div>
 
         {/* Stats */}
@@ -133,3 +137,6 @@ export default function HeroSection() {
     </header>
   );
 }
+
+
+export default HeroSection;

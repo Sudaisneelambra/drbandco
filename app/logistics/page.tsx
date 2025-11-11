@@ -1,4 +1,14 @@
+"use client";
+
+import { useEffect } from "react";
+
 const Logistics = ()=>{
+
+        useEffect(()=>{
+                console.log('works her');
+                
+        },[])
+
         return(
             <>
                 <div className=" pt-10">

@@ -1,4 +1,4 @@
-'use client';
+"use client";
 
 import { motion, useInView, useScroll, useTransform } from 'framer-motion';
 import { useRef } from 'react';
@@ -74,7 +74,7 @@ export default function AboutSection() {
             initial={{ opacity: 0, y: 40 }}
             animate={introInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 1, delay: 0.2 }}
-            className="text-4xl md:text-6xl font-serif font-bold bg-gradient-to-br from-[#f5e7b1] via-[#d4af37] to-[#a37d24] bg-clip-text text-transparent"
+            className="text-2xl md:text-4xl font-serif font-bold bg-gradient-to-br from-[#f5e7b1] via-[#d4af37] to-[#a37d24] bg-clip-text text-transparent"
           >
             The DrB Experience
           </motion.h2>
@@ -83,7 +83,7 @@ export default function AboutSection() {
             initial={{ opacity: 0, y: 20 }}
             animate={introInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 1, delay: 0.4 }}
-            className="text-white/60 text-base md:text-lg font-light"
+            className="text-white/60 text-base md:text-md font-light"
           >
             A cinematic story of ambition, innovation, and global excellence.
           </motion.p>
@@ -145,7 +145,7 @@ export default function AboutSection() {
                     <div className="text-[#d4af37]/70 text-sm tracking-[0.4em] uppercase">
                       {c.year}
                     </div>
-                    <h3 className="text-2xl font-serif font-bold bg-gradient-to-br from-[#f5e7b1] via-[#d4af37] to-[#a37d24] bg-clip-text text-transparent">
+                    <h3 className="text-xl font-serif font-bold bg-gradient-to-br from-[#f5e7b1] via-[#d4af37] to-[#a37d24] bg-clip-text text-transparent">
                       {c.heading}
                     </h3>
                     <p className="text-white/60 leading-relaxed font-light text-sm">{c.text}</p>
@@ -209,7 +209,7 @@ export default function AboutSection() {
                     <div className="text-[#d4af37]/70 text-sm tracking-[0.4em] uppercase">
                       {c.year}
                     </div>
-                    <h3 className="text-4xl font-serif font-bold bg-gradient-to-br from-[#f5e7b1] via-[#d4af37] to-[#a37d24] bg-clip-text text-transparent">
+                    <h3 className="text-2xl font-serif font-bold bg-gradient-to-br from-[#f5e7b1] via-[#d4af37] to-[#a37d24] bg-clip-text text-transparent">
                       {c.heading}
                     </h3>
                     <p className="text-white/60 leading-relaxed font-light">{c.text}</p>
@@ -228,7 +228,7 @@ export default function AboutSection() {
           transition={{ duration: 1 }}
           className="text-center pt-8 md:pt-12"
         >
-          <p className="italic text-white/50 text-lg">
+          <p className="italic text-white/50 text-md">
             “Connecting markets, people, and opportunities across continents.”
           </p>
           <div className="w-24 h-[2px] bg-gradient-to-r from-transparent via-[#d4af37] to-transparent mx-auto mt-4" />

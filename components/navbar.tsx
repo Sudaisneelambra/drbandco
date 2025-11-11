@@ -2,12 +2,11 @@
 
 import { useState, useEffect } from "react";
 import { Menu, X, ArrowUpRight } from "lucide-react";
-import { usePathname, useRouter } from "next/navigation";
+import { useRouter } from "next/navigation";
 
 export default function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const pathName = usePathname();
   const router = useRouter();
 
   useEffect(() => {
@@ -20,23 +19,28 @@ export default function Navbar() {
 
   const navLinks = [
     { name: "Home", target: "home" },
-    { name: "Tours & Travel", target: "traval-and-tours" },
+    { name: "Tours & Travel", target: "travel-and-tours" },
     { name: "Logistics", target: "logistics" },
   ];
 
-  const goToHome = () => {};
+  const goToHome = () => {
+    router.push(`/`);
+  };
 
   const goToNavigation = (target: string) => {
-    if (pathName === "/" && target === "home") {
-      window.scrollTo({ top: 0, behavior: "smooth" });
-      return
-    }if(pathName !== "/" && target === "home") {
+    if (target === "home") {
       router.push(`/`);
-      return
+      return;
     }
     router.push(`/${target}`);
+  };
 
+  const connectToWhatsapp = () => {
+    const phoneNumber = "919747491562"; // your WhatsApp number with country code
+    const text = `Hi`;
 
+    // Opens WhatsApp in a new tab
+    window.open(`https://wa.me/${phoneNumber}?text=${text}`, "_blank");
   };
 
   return (
@@ -56,10 +60,10 @@ export default function Navbar() {
           <div className="max-w-[1600px] mx-auto sm:px-8 px-4 lg:px-16">
             <div className="flex items-center justify-between py-3 md:py-4 lg:py-5">
               {/* LEFT - Premium Logo */}
-              <div className="group relative cursor-pointer" onClick={goToHome}>
-                <div className="flex items-center space-x-4">
+              <div className="group relative cursor-pointer ">
+                <div className="flex items-center space-x-4" onClick={goToHome}>
                   {/* Luxury Emblem */}
-                  <div className="relative">
+                  <div className="relative ">
                     {/* Outer Decorative Frame */}
                     <div className="absolute -inset-6 opacity-0 group-hover:opacity-100 transition-all duration-1000">
                       {/* Corner Ornaments */}
@@ -82,7 +86,7 @@ export default function Navbar() {
                     </div>
 
                     {/* Main Logo Circle */}
-                    <div className="relative w-14 h-14 md:w-16 md:h-16 flex items-center justify-center">
+                    <div className="relative w-14 h-14 md:w-16 md:h-16 flex items-center justify-center ">
                       {/* Rotating Outer Rings */}
                       <div className="absolute inset-0 rounded-full border-[1.5px] border-[#d4af37]/20 group-hover:rotate-180 transition-transform duration-[3000ms] ease-in-out"></div>
                       <div className="absolute inset-2 rounded-full border-[1px] border-[#d4af37]/10 group-hover:-rotate-180 transition-transform duration-[3000ms] ease-in-out"></div>
@@ -150,6 +154,7 @@ export default function Navbar() {
                     type="button"
                     area-label="Connect With Us"
                     className="relative cursor-pointer flex items-center space-x-2 px-8 xl:px-10 py-3 bg-black border border-[#d4af37] rounded-sm overflow-hidden group-hover:bg-gradient-to-r group-hover:from-[#d4af37] group-hover:to-[#ffd700] transition-all duration-700"
+                    onClick={connectToWhatsapp}
                   >
                     <span className="relative z-10 text-[10px] font-medium tracking-[0.2em] uppercase text-[#d4af37] group-hover:text-black transition-colors duration-500">
                       Connect With Us
@@ -203,6 +208,7 @@ export default function Navbar() {
                     key={index}
                     onClick={() => {
                       setIsMobileMenuOpen(false);
+                      goToNavigation(link.target);
                     }}
                     className="group flex  items-center justify-between py-3 border-b border-white/5 hover:border-[#d4af37]/30 transition-all duration-300"
                   >
@@ -220,6 +226,7 @@ export default function Navbar() {
                 aria-label="Connect With Us"
                 onClick={() => {
                   setIsMobileMenuOpen(false);
+                  connectToWhatsapp()
                 }}
                 className="flex items-center justify-center space-x-2 w-full px-8 py-4 bg-gradient-to-r from-[#d4af37] to-[#ffd700] text-black rounded-sm text-[11px] font-medium tracking-[0.2em] uppercase hover:shadow-[0_0_50px_rgba(212,175,55,0.6)] transition-all duration-500"
               >

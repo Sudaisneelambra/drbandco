@@ -27,7 +27,7 @@ const Footer = () => {
   | { name: string; type: "scroll"; target: string };
 
   const navLinks: NavLink[] = [
-    { name: "Tours & Travel", type: "route", href: "/" },
+    { name: "Tours & Travel", type: "route", href: "/travel-and-tours" },
     { name: "Logistics", type: "route", href: "/logistics" },
     { name: "About Us", type: "scroll", target: "about-section" },
     { name: "Services", type: "scroll", target: "service-section" },
@@ -45,10 +45,19 @@ const Footer = () => {
 
   const supportLinks = [
     "Help Center",
-    "Contact Us",
     "Privacy Policy",
     "Terms of Service",
   ];
+
+
+  const connectToWhatsapp = ()=>{
+    const phoneNumber = "919747491562"; // your WhatsApp number with country code
+    const text = `Hi`;
+
+    // Opens WhatsApp in a new tab
+    window.open(`https://wa.me/${phoneNumber}?text=${text}`, "_blank");
+
+  }
 
 
   return (
@@ -177,7 +186,9 @@ const Footer = () => {
               Have a question or project in mind? Let ’ s connect and discuss your needs.
             </p>
 
-            <button className="group relative w-full h-11 bg-gradient-to-r from-yellow-400 to-yellow-500 overflow-hidden transition-all duration-500 hover:shadow-[0_0_30px_rgba(212,175,55,0.4)]">
+            <button className="group relative w-full h-11 bg-gradient-to-r from-yellow-400 to-yellow-500 overflow-hidden transition-all duration-500 hover:shadow-[0_0_30px_rgba(212,175,55,0.4)]"
+              onClick={connectToWhatsapp}
+            >
               <span className="relative z-10 flex items-center justify-center space-x-2 text-[10px] font-medium tracking-[0.2em] uppercase text-black">
                 <MessageCircle className="w-3.5 h-3.5" />
                 <span>Contact Us</span>
