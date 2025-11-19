@@ -95,7 +95,7 @@ const TravelAndTours = ()=>{
 
     return (
         <>
-            <div className="mt-4" style={{backgroundColor:'red'}}>
+            <div className="mt-4">
                 <TravelHero />
                 <TravelToursSection/>
                 {destinations.map((destination, index) => (
