@@ -1,6 +1,6 @@
 "use client";
 
-import {  useRef, useState } from "react";
+import { useRef, useState } from "react";
 import {
   Facebook,
   Twitter,
@@ -12,55 +12,45 @@ import {
   ArrowUpRight,
 } from "lucide-react";
 import Link from "next/link";
-import {useRouter, usePathname } from "next/navigation";
-
-
+import { useRouter, usePathname } from "next/navigation";
 
 const Footer = () => {
-  
   const footerRef = useRef<HTMLDivElement | null>(null);
   const router = useRouter();
   const pathname = usePathname();
   const [currentYear] = useState(new Date().getFullYear());
 
   type NavLink =
-  | { name: string; type: "route"; href: string }
-  | { name: string; type: "scroll"; target: string };
+    | { name: string; type: "route"; href: string }
+    | { name: string; type: "scroll"; target: string };
 
   const navLinks: NavLink[] = [
     { name: "Tours & Travel", type: "route", href: "/travel-and-tours" },
     { name: "Logistics", type: "route", href: "/logistics" },
     { name: "About Us", type: "scroll", target: "about-section" },
     { name: "Services", type: "scroll", target: "service-section" },
-    ];
-
-    const handleScroll = (target: string)=>{
-        if (pathname === "/") {
-       
-            document.getElementById(target)?.scrollIntoView({ behavior: "smooth" });
-        } else {
-            sessionStorage.setItem("scrollTarget", target);
-            router.push("/");
-        }
-    }
-
-  const supportLinks = [
-    "Help Center",
-    "Privacy Policy",
-    "Terms of Service",
   ];
 
+  const handleScroll = (target: string) => {
+    if (pathname === "/") {
+      document.getElementById(target)?.scrollIntoView({ behavior: "smooth" });
+    } else {
+      sessionStorage.setItem("scrollTarget", target);
+      router.push("/");
+    }
+  };
 
-  const connectToWhatsapp = ()=>{
+  const supportLinks = ["Help Center", "Privacy Policy", "Terms of Service"];
+
+  const connectToWhatsapp = () => {
     const phoneNumber = "919747491562"; // your WhatsApp number with country code
     const text = `Hi`;
 
     // Opens WhatsApp in a new tab
     window.open(`https://wa.me/${phoneNumber}?text=${text}`, "_blank");
+  };
 
-  }
-
-    const isTravelPage = pathname === "/travel-and-tours";
+  const isTravelPage = pathname === "/travel-and-tours";
 
   // Theme variables
   const theme = isTravelPage
@@ -81,24 +71,22 @@ const Footer = () => {
         buttonText: "black",
       };
 
-
   return (
     <footer
-        className="relative border-t text-gray-300 overflow-hidden"
-        style={{
-          backgroundColor: theme.bgColor,
-          borderColor: theme.borderColor,
-          color: theme.textColor,
-        }}
-      >
-
+      className="relative border-t text-gray-300 overflow-hidden"
+      style={{
+        backgroundColor: theme.bgColor,
+        borderColor: theme.borderColor,
+        color: theme.textColor,
+      }}
+    >
       {/* Decorative Top Border */}
       <div
-          className="h-px w-full"
-          style={{
-            background: `linear-gradient(to right, transparent, ${theme.borderColor}33, transparent)`,
-          }}
-        />
+        className="h-px w-full"
+        style={{
+          background: `linear-gradient(to right, transparent, ${theme.borderColor}33, transparent)`,
+        }}
+      />
 
       {/* Main Footer */}
       <div className="mx-auto px-6 lg:px-16 py-16 lg:py-20">
@@ -108,7 +96,7 @@ const Footer = () => {
             {/* Logo */}
             <div className="flex flex-col items-start">
               <div className="relative w-16 h-16 flex items-center justify-center mb-4">
-               <div
+                <div
                   className="absolute inset-0 rounded-full"
                   style={{ border: `1px solid ${theme.borderColor}33` }} // 20% opacity
                 />
@@ -117,17 +105,17 @@ const Footer = () => {
                   style={{ border: `1px solid ${theme.borderColor}1A` }} // 10% opacity
                 />
                 <div
-                    className="relative w-12 h-12 rounded-full border-2 flex items-center justify-center"
-                    style={{
-                      borderColor: theme.borderColor, // dynamic border
-                      background: `radial-gradient(circle, ${theme.borderColor}20, transparent)`, // gradient using theme
-                    }}
-                  >
+                  className="relative w-12 h-12 rounded-full border-2 flex items-center justify-center"
+                  style={{
+                    borderColor: theme.borderColor, // dynamic border
+                    background: `radial-gradient(circle, ${theme.borderColor}20, transparent)`, // gradient using theme
+                  }}
+                >
                   <span
-                    className="text-2xl font-serif font-bold text-transparent"
+                    className="text-2xl font-serif font-bold text-transparent bg-clip-text"
                     style={{
-                      background: `linear-gradient(to bottom right, ${theme.borderColor}, ${theme.hoverColor})`,
-                      backgroundClip: "text",
+                      backgroundImage: `linear-gradient(to bottom right, ${theme.borderColor}, ${theme.hoverColor})`,
+                      WebkitBackgroundClip: "text", // for Safari
                     }}
                   >
                     D
@@ -143,26 +131,26 @@ const Footer = () => {
                   }}
                 />
                 <span
-                  className="text-[11px] tracking-[0.3em] font-light uppercase text-transparent"
+                  className="text-[11px] tracking-[0.3em] font-light uppercase text-transparent bg-clip-text"
                   style={{
-                    background: `linear-gradient(to right, ${theme.borderColor}, ${theme.hoverColor})`,
-                    backgroundClip: "text",
+                    backgroundImage: `linear-gradient(to right, ${theme.borderColor}, ${theme.hoverColor})`,
+                    WebkitBackgroundClip: "text", // for Safari
                   }}
                 >
-                  DrB & Co
+                  DrB Group & Co
                 </span>
               </div>
               <span
-                  className="text-[7px] tracking-[0.3em] uppercase mt-1"
-                  style={{ color: theme.textColor + "80" }} // 80 hex = ~50% opacity
-                >
+                className="text-[7px] tracking-[0.3em] uppercase mt-1"
+                style={{ color: theme.textColor + "80" }} // 80 hex = ~50% opacity
+              >
                 Established 2020
               </span>
             </div>
 
             <p
-                className="text-[11px] leading-relaxed tracking-wide"
-                style={{ color: theme.textColor + "80" }} // 80 hex = ~50% opacity
+              className="text-[11px] leading-relaxed tracking-wide"
+              style={{ color: theme.textColor + "80" }} // 80 hex = ~50% opacity
             >
               To give the best from us, without any compromise on quality.
             </p>
@@ -181,8 +169,12 @@ const Footer = () => {
                     style={{
                       color: theme.textColor + "80",
                     }}
-                    onMouseEnter={(e) => (e.currentTarget.style.color = theme.hoverColor)}
-                    onMouseLeave={(e) => (e.currentTarget.style.color = theme.textColor + "80")}
+                    onMouseEnter={(e) =>
+                      (e.currentTarget.style.color = theme.hoverColor)
+                    }
+                    onMouseLeave={(e) =>
+                      (e.currentTarget.style.color = theme.textColor + "80")
+                    }
                   />
                 </a>
               ))}
@@ -193,44 +185,54 @@ const Footer = () => {
           <div className="space-y-6">
             <div className="flex items-center space-x-3">
               <h3
-                  className="text-[11px] font-medium tracking-[0.25em] uppercase"
-                  style={{ color: theme.hoverColor }}
-                >
+                className="text-[11px] font-medium tracking-[0.25em] uppercase"
+                style={{ color: theme.hoverColor }}
+              >
                 Quick Links
               </h3>
               <div
                 className="flex-1 h-px"
-                style={{ background: `linear-gradient(to right, ${theme.borderColor}4D, transparent)` }}
+                style={{
+                  background: `linear-gradient(to right, ${theme.borderColor}4D, transparent)`,
+                }}
               />
             </div>
             <ul className="space-y-3">
               {navLinks.map((link, index) => (
-                <li key={`link-${link.name}` || index} >
-                    {link.type === "route" ? (
-                        <Link
-                            href={link.href}
-                            className="inline-flex cursor-pointer items-center gap-2 group text-[11px] transition-colors duration-500"
-                            style={{ color: theme.textColor + 80}}
-                            onMouseEnter={(e) => (e.currentTarget.style.color = theme.hoverColor)}
-                            onMouseLeave={(e) => (e.currentTarget.style.color = theme.textColor + 80)}
-                            >
-                            <span className="tracking-wider">{link.name}</span>
-                            <ArrowUpRight className="w-3 h-3 opacity-0 group-hover:opacity-100 -translate-x-2 group-hover:translate-x-0 transition-all duration-500" />
-                        </Link>
-                    ) : (
-                        <button
-                            type="button"
-                            area-label={`Go to ${link.name}`}
-                            onClick={() => handleScroll(link.target)}
-                            className="inline-flex cursor-pointer items-center gap-2 group text-[11px] transition-colors duration-500"
-                            style={{ color: theme.textColor+ 80 }}
-                            onMouseEnter={(e) => (e.currentTarget.style.color = theme.hoverColor)}
-                            onMouseLeave={(e) => (e.currentTarget.style.color = theme.textColor + 80)}
-                            >
-                            <span className="tracking-wider">{link.name}</span>
-                            <ArrowUpRight className="w-3 h-3 opacity-0 group-hover:opacity-100 -translate-x-2 group-hover:translate-x-0 transition-all duration-500" />
-                        </button>
-                    )}
+                <li key={`link-${link.name}` || index}>
+                  {link.type === "route" ? (
+                    <Link
+                      href={link.href}
+                      className="inline-flex cursor-pointer items-center gap-2 group text-[11px] transition-colors duration-500"
+                      style={{ color: theme.textColor + 80 }}
+                      onMouseEnter={(e) =>
+                        (e.currentTarget.style.color = theme.hoverColor)
+                      }
+                      onMouseLeave={(e) =>
+                        (e.currentTarget.style.color = theme.textColor + 80)
+                      }
+                    >
+                      <span className="tracking-wider">{link.name}</span>
+                      <ArrowUpRight className="w-3 h-3 opacity-0 group-hover:opacity-100 -translate-x-2 group-hover:translate-x-0 transition-all duration-500" />
+                    </Link>
+                  ) : (
+                    <button
+                      type="button"
+                      area-label={`Go to ${link.name}`}
+                      onClick={() => handleScroll(link.target)}
+                      className="inline-flex cursor-pointer items-center gap-2 group text-[11px] transition-colors duration-500"
+                      style={{ color: theme.textColor + 80 }}
+                      onMouseEnter={(e) =>
+                        (e.currentTarget.style.color = theme.hoverColor)
+                      }
+                      onMouseLeave={(e) =>
+                        (e.currentTarget.style.color = theme.textColor + 80)
+                      }
+                    >
+                      <span className="tracking-wider">{link.name}</span>
+                      <ArrowUpRight className="w-3 h-3 opacity-0 group-hover:opacity-100 -translate-x-2 group-hover:translate-x-0 transition-all duration-500" />
+                    </button>
+                  )}
                 </li>
               ))}
             </ul>
@@ -239,15 +241,17 @@ const Footer = () => {
           {/* Support */}
           <div className="space-y-6">
             <div className="flex items-center space-x-3">
-              <h3 
-                  className="text-[11px] font-medium tracking-[0.25em] uppercase"
-                  style={{ color: theme.hoverColor }}
-                >
+              <h3
+                className="text-[11px] font-medium tracking-[0.25em] uppercase"
+                style={{ color: theme.hoverColor }}
+              >
                 Support
               </h3>
               <div
                 className="flex-1 h-px"
-                style={{ background: `linear-gradient(to right, ${theme.borderColor}4D, transparent)` }}
+                style={{
+                  background: `linear-gradient(to right, ${theme.borderColor}4D, transparent)`,
+                }}
               />
             </div>
             <ul className="space-y-3">
@@ -256,9 +260,13 @@ const Footer = () => {
                   <a
                     href="#"
                     className="inline-flex cursor-pointer items-center gap-2 group text-[11px] transition-colors duration-500"
-                    style={{ color: theme.textColor+ 80 }}
-                    onMouseEnter={(e) => (e.currentTarget.style.color = theme.hoverColor)}
-                    onMouseLeave={(e) => (e.currentTarget.style.color = theme.textColor + 80)}
+                    style={{ color: theme.textColor + 80 }}
+                    onMouseEnter={(e) =>
+                      (e.currentTarget.style.color = theme.hoverColor)
+                    }
+                    onMouseLeave={(e) =>
+                      (e.currentTarget.style.color = theme.textColor + 80)
+                    }
                   >
                     <span className="tracking-wider">{link}</span>
                     <ArrowUpRight className="w-3 h-3 opacity-0 group-hover:opacity-100 -translate-x-2 group-hover:translate-x-0 transition-all duration-500" />
@@ -271,33 +279,36 @@ const Footer = () => {
           {/* Newsletter / Contact */}
           <div className="space-y-6">
             <div className="flex items-center space-x-3">
-              <h3 
+              <h3
                 className="text-[11px] font-medium tracking-[0.25em] uppercase"
                 style={{ color: theme.hoverColor }}
-                >
+              >
                 Get in Touch
               </h3>
               <div
                 className="flex-1 h-px"
-                style={{ background: `linear-gradient(to right, ${theme.borderColor}4D, transparent)` }}
+                style={{
+                  background: `linear-gradient(to right, ${theme.borderColor}4D, transparent)`,
+                }}
               />
             </div>
             <p
-                className="text-[11px] tracking-wide leading-relaxed"
-                style={{ color: theme.textColor + "80" }}
-              >
-              Have a question or project in mind? Let ’ s connect and discuss your needs.
+              className="text-[11px] tracking-wide leading-relaxed"
+              style={{ color: theme.textColor + "80" }}
+            >
+              Have a question or project in mind? Let ’ s connect and discuss
+              your needs.
             </p>
 
             <button
-                className="group relative w-full h-11 overflow-hidden transition-all duration-500"
-                style={{
-                  background: `linear-gradient(to right, ${theme.borderColor}, ${theme.hoverColor})`,
-                  boxShadow: `0 0 30px ${theme.hoverColor}66`, // 66 = 40% opacity in hex
-                  color: theme.buttonText,
-                }}
-                onClick={connectToWhatsapp}
-              >
+              className="group relative w-full h-11 overflow-hidden transition-all duration-500"
+              style={{
+                background: `linear-gradient(to right, ${theme.borderColor}, ${theme.hoverColor})`,
+                boxShadow: `0 0 30px ${theme.hoverColor}66`, // 66 = 40% opacity in hex
+                color: theme.buttonText,
+              }}
+              onClick={connectToWhatsapp}
+            >
               <span className="relative z-10 flex items-center justify-center space-x-2 text-[10px] font-medium tracking-[0.2em] uppercase text-black">
                 <MessageCircle className="w-3.5 h-3.5" />
                 <span>Contact Us</span>
@@ -318,9 +329,9 @@ const Footer = () => {
               `}</style>
             </button>
 
-            <div 
+            <div
               className="pt-4 space-y-2 border-t"
-              style={{ borderColor: theme.borderColor + "1A" }} 
+              style={{ borderColor: theme.borderColor + "1A" }}
             >
               <a
                 href="tel:+1234567890"
@@ -328,8 +339,12 @@ const Footer = () => {
                 style={{
                   color: theme.textColor + "80",
                 }}
-                onMouseEnter={(e) => (e.currentTarget.style.color = theme.hoverColor)}
-                onMouseLeave={(e) => (e.currentTarget.style.color = theme.textColor+"80")}
+                onMouseEnter={(e) =>
+                  (e.currentTarget.style.color = theme.hoverColor)
+                }
+                onMouseLeave={(e) =>
+                  (e.currentTarget.style.color = theme.textColor + "80")
+                }
               >
                 <Phone className="w-3.5 h-3.5" />
                 <span className="tracking-wider">+123 456 7890</span>
@@ -340,8 +355,12 @@ const Footer = () => {
                 style={{
                   color: theme.textColor + "80",
                 }}
-                onMouseEnter={(e) => (e.currentTarget.style.color = theme.hoverColor)}
-                onMouseLeave={(e) => (e.currentTarget.style.color = theme.textColor + "80")}
+                onMouseEnter={(e) =>
+                  (e.currentTarget.style.color = theme.hoverColor)
+                }
+                onMouseLeave={(e) =>
+                  (e.currentTarget.style.color = theme.textColor + "80")
+                }
               >
                 <Mail className="w-3.5 h-3.5" />
                 <span className="tracking-wider">info@drbco.com</span>
@@ -362,7 +381,7 @@ const Footer = () => {
       <div className="max-w-7xl mx-auto px-6 lg:px-16 py-8">
         <div className="flex flex-col md:flex-row justify-between items-center gap-6">
           <div className="flex items-center space-x-3">
-            <div 
+            <div
               className="w-8 h-px"
               style={{
                 background: `linear-gradient(to right, transparent, ${theme.borderColor}66)`, // 66 is ~40% opacity
@@ -370,11 +389,11 @@ const Footer = () => {
             />
             <p
               className="text-[9px] tracking-[0.2em] uppercase"
-              style={{ color: theme.textColor + 80}}
+              style={{ color: theme.textColor + 80 }}
             >
               © {currentYear} DrB & Co. All rights reserved.
             </p>
-            <div 
+            <div
               className="w-8 h-px"
               style={{
                 background: `linear-gradient(to right, transparent, ${theme.borderColor}66)`, // 66 is ~40% opacity
