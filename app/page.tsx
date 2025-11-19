@@ -8,7 +8,7 @@ const HeroSection = dynamic(
   () => import("../components/homePageComponents/heroSection"),
   {
     // Load immediately but still code-split
-    ssr: true,
+    ssr: false,
   }
 );
 

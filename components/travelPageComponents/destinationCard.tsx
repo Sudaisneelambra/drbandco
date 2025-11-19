@@ -1,24 +1,26 @@
 "use client";
-
 import { useState, useEffect, useRef } from "react";
 import AnimatedSection from "../travelPageComponents/animatedSection";
 import CarosalComponent from "../travelPageComponents/carosalComponent";
 
+
 interface DestinationCardProps {
-  title: string;
   subtitle: string;
   description: string;
   highlights: string[];
   images: { src: string; alt?: string }[];
+  amount:string;
   reverse?: boolean;
+  threeCountries?:boolean
 }
 
 const DestinationCard: React.FC<DestinationCardProps> = ({
-  title,
   subtitle,
+  amount,
   description,
   highlights,
   images,
+  threeCountries,
   reverse = false,
 }) => {
   const [isVisible, setIsVisible] = useState(false);
@@ -103,9 +105,6 @@ useEffect(() => {
               <p className="text-yellow-500 font-semibold tracking-wider uppercase text-xs sm:text-sm">
                 {subtitle}
               </p>
-              <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold bg-gradient-to-r from-yellow-400 via-yellow-300 to-yellow-500 bg-clip-text text-transparent leading-tight">
-                {title}
-              </h2>
               <div
                 className={`h-1 w-20 sm:w-24 bg-gradient-to-r from-yellow-600 via-yellow-400 to-yellow-600 rounded-full transition-all duration-1000 ${
                   isVisible ? "opacity-100 scale-x-100" : "opacity-0 scale-x-0"
@@ -120,40 +119,29 @@ useEffect(() => {
             >
               {description}
             </p>
-
-            <div className="space-y-3 pt-2 sm:pt-4 w-full">
-              {highlights.map((highlight, index) => (
+            <p>Destinations</p>
+            <div className="space-y-3  w-full flex gap-2 flex-wrap">
+              {
+                highlights.map((highlight, index) => (
                 <div
-                  key={index}
-                  className={`flex items-start gap-3 transition-all duration-500 ${
-                    isVisible ? "opacity-100 translate-x-0" : "opacity-0 -translate-x-4"
+                  key={`${highlight}-${index}`}
+                  className={`transition-all duration-500 flex w-fit px-4 py-1 bg-white/10 backdrop-blur-md text-gray-200 text-sm sm:text-base hover:bg-white/20 rounded-xl cursor-pointer border border-white/20 shadow-lg ${
+                    isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-3"
                   }`}
-                  style={{ transitionDelay: `${400 + index * 100}ms` }}
+                  style={{margin:'0px', transitionDelay: `${400 + index * 100}ms` }}
                 >
-                  <div
-                    className="mt-1.5 w-2 h-2 rounded-full bg-gradient-to-r from-yellow-500 to-yellow-600 flex-shrink-0 shadow-lg shadow-yellow-500/50"
-                    style={{
-                      animation: `scale-pulse 2s ease-in-out infinite`,
-                      animationDelay: `${index * 0.2}s`,
-                    }}
-                  ></div>
-                  <p className="text-gray-200 text-sm sm:text-base">{highlight}</p>
+                  {highlight}
                 </div>
               ))}
             </div>
+            <p>Package Starting From {amount}/- for 2 pax * {threeCountries && <span> (for Three countries)</span>}</p> 
+            <div className="flex items-center gap-3 text-gray-300">
+              <span>More Details</span>
+              <button className="px-4 py-1 bg-yellow-500 text-black font-semibold rounded-md hover:bg-yellow-400 transition flex gap-2">
+                CONTACT US
+              </button>
+            </div>
 
-            {/* Optional: Add a subtle gold border accent */}
-            {/* <div
-              className={`mt-6 pt-6 border-t border-yellow-600/20 transition-all duration-700 ${
-                isVisible ? "opacity-100" : "opacity-0"
-              }`}
-            >
-              <div className="flex items-center gap-2">
-                <div className="h-px flex-1 bg-gradient-to-r from-transparent via-yellow-600/50 to-transparent"></div>
-                <div className="w-2 h-2 rounded-full bg-yellow-500 shadow-lg shadow-yellow-500/50"></div>
-                <div className="h-px flex-1 bg-gradient-to-r from-transparent via-yellow-600/50 to-transparent"></div>
-              </div>
-            </div> */}
           </AnimatedSection>
         </div>
       </div>

@@ -1,21 +1,34 @@
-import dynamic from "next/dynamic";
+"use client";
 
-const TravelHero = dynamic(() => import("../../components/travelPageComponents/travelHero"));
-const DestinationCard = dynamic(() => import("../../components/travelPageComponents/destinationCard"));
+import TravelHero from "../../components/travelPageComponents/travelHero";
+import DestinationCard from "../../components/travelPageComponents/destinationCard";
+import TravelToursSection from "../../components/travelPageComponents/travelAndTours";
+
 
 const TravelAndTours = ()=>{
 
     const destinations = [
     {
-      title: "Georgia",
-      subtitle: "explore Georgia",
+      subtitle: "Eastern Europe",
       description:
-        "Discover the enchanting beauty of Georgia, where ancient traditions meet breathtaking landscapes. From the majestic Caucasus Mountains to the historic streets of Tbilisi, experience a destination that captivates the soul.",
+        "Eastern Europe is a beautiful blend of history, culture, and breathtaking landscapes. From medieval cities to peaceful mountains and charming old towns, this region offers affordable travel, rich traditions, and unforgettable experiences. Perfect for travelers looking for culture, adventure, and amazing value.",
       highlights: [
-        "UNESCO World Heritage Sites including ancient monasteries and fortresses",
-        "World-renowned wine regions with 8,000 years of winemaking tradition",
-        "Stunning mountain scenery and pristine natural landscapes",
-        "Rich cultural heritage blending European and Asian influences",
+        "Poland",
+        "Czech Republic",
+        "Slovakia",
+        "Hungary",
+        "Romania",
+        "Bulgaria",
+        "Serbia",
+        "Bosnia & Herzegovina",
+        "Montenegro",
+        "North Macedonia",
+        "Albania",
+        "Kosovo",
+        "Moldova",
+        "Ukraine",
+        "Belarus",
+        "Russia"
       ],
       images: [
         { src: "/images/eastern-europe.webp", alt: "Georgia landscape" },
@@ -23,17 +36,40 @@ const TravelAndTours = ()=>{
         { src: "/images/eastern-europe2.webp", alt: "Caucasus mountains" },
         { src: "/images/eastern-europe3.webp", alt: "Historic streets" },
       ],
+      amount: "$699",
+      threeCountries:false,
     },
     {
-      title: "Eastern Europe",
-      subtitle: "Historic Grandeur",
+      subtitle: "Schengen Countries",
       description:
-        "Journey through Eastern Europe's most captivating destinations. Explore medieval castles, baroque palaces, and charming cobblestone streets that tell stories of centuries past in cities like Prague, Budapest, and Krakow.",
+        "The Schengen Zone opens the door to seamless European travel—one visa, multiple stunning destinations. Explore iconic cities, scenic coastlines, fairy-tale landscapes, and world-famous attractions with ease and comfort. Perfect for travelers who want freedom, convenience, and unforgettable European adventures.",
       highlights: [
-        "Magnificent castles and imperial palaces steeped in history",
-        "Vibrant capital cities combining old-world charm with modern sophistication",
-        "Traditional cuisine and world-class dining experiences",
-        "Art nouveau architecture and stunning historic city centers",
+          "Austria",
+          "Belgium",
+          "Czech Republic",
+          "Denmark",
+          "Estonia",
+          "Finland",
+          "France",
+          "Germany",
+          "Greece",
+          "Hungary",
+          "Iceland",
+          "Italy",
+          "Latvia",
+          "Liechtenstein",
+          "Lithuania",
+          "Luxembourg",
+          "Malta",
+          "Netherlands",
+          "Norway",
+          "Poland",
+          "Portugal",
+          "Slovakia",
+          "Slovenia",
+          "Spain",
+          "Sweden",
+          "Switzerland"
       ],
       images: [
         { src: "/images/eastern-europe.webp", alt: "Georgia landscape" },
@@ -41,6 +77,8 @@ const TravelAndTours = ()=>{
         { src: "/images/eastern-europe2.webp", alt: "Caucasus mountains" },
         { src: "/images/eastern-europe3.webp", alt: "Historic streets" },
       ],
+      amount: "€1299",
+      threeCountries:true,
       reverse: true,
     },
   ];
@@ -50,6 +88,7 @@ const TravelAndTours = ()=>{
         <>
             <div className="mt-4">
                 <TravelHero />
+                <TravelToursSection/>
                 {destinations.map((destination, index) => (
                     <DestinationCard key={index} {...destination} />
                 ))}

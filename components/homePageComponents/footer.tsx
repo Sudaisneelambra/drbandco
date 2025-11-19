@@ -1,6 +1,6 @@
 "use client";
 
-import { useRef } from "react";
+import {  useRef, useState } from "react";
 import {
   Facebook,
   Twitter,
@@ -17,10 +17,11 @@ import {useRouter, usePathname } from "next/navigation";
 
 
 const Footer = () => {
-  const currentYear = new Date().getFullYear();
+  
   const footerRef = useRef<HTMLDivElement | null>(null);
   const router = useRouter();
   const pathname = usePathname();
+  const [currentYear] = useState(new Date().getFullYear());
 
   type NavLink =
   | { name: string; type: "route"; href: string }
