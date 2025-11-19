@@ -1,12 +1,14 @@
 "use client";
 
+import { motion } from "framer-motion";
+
 export default function LogisticsHeroSection() {
   return (
-    <section className="relative h-screen w-full overflow-hidden bg-black">
-      
+    <section className="relative h-[90vh] md:h-screen w-full overflow-hidden bg-black">
+
       {/* Background Video */}
       <video
-        className="absolute inset-0 w-full h-full object-cover brightness-[0.55] contrast-[1.15]"
+        className="absolute inset-0 w-full h-full object-cover brightness-[0.45] contrast-[1.15]"
         autoPlay
         loop
         muted
@@ -16,73 +18,101 @@ export default function LogisticsHeroSection() {
       </video>
 
       {/* Cinematic Overlay */}
-      <div className="absolute inset-0 bg-black/60" />
-      <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-black/40 to-black/80" />
+      <div className="absolute inset-0 bg-gradient-to-b from-black/35 via-black/60 to-black/90" />
+      <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent" />
 
-      {/* Gold Ambient Glow */}
-  
+      {/* Soft top glow */}
+      <div className="absolute top-0 left-0 w-full h-24 bg-gradient-to-b from-[#d4af37]/12 to-transparent" />
 
       {/* CONTENT */}
-      <div className="relative z-10 flex flex-col items-center justify-center h-full px-6 text-center select-none">
+      <div className="relative z-10 max-w-6xl mx-auto px-6 flex flex-col items-center justify-center h-full text-center select-none">
 
-        {/* Label */}
-        <p className="text-[11px] md:text-sm tracking-[0.35em] text-[#d4af37]/90 uppercase mb-5">
-          DRB & CO LOGISTICS
-        </p>
-
-        {/* Premium Heading */}
-        <h1
-          className="text-[40px] md:text-[72px] leading-[1.05] font-serif font-bold"
-          style={{
-            color: "#f5efe6",
-            letterSpacing: "0.5px",
-            textShadow: "0 4px 35px rgba(0,0,0,0.8)",
-          }}
+        {/* BRAND NAME */}
+        <motion.h1
+          initial={{ opacity: 0, y: 28 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.9 }}
+          className="
+            font-serif font-bold uppercase tracking-[0.06em]
+            text-white
+            text-[20px] sm:text-[24px] md:text-[38px] lg:text-[38px]
+            leading-[1.05]
+            drop-shadow-[0_6px_30px_rgba(0,0,0,0.7)]
+          "
         >
-          Precision Logistics for  
-          <br />
-          <span>
-            Luxury Automotive & Cargo
+          DRB & CO
+          <span className="
+            block
+            bg-gradient-to-r from-[#f5e7b1] via-[#d4af37] to-[#a37d24]
+            bg-clip-text text-transparent
+            text-[30px] sm:text-[42px] md:text-[60px] lg:text-[60px]
+          ">
+            LOGISTICS
           </span>
-        </h1>
+        </motion.h1>
 
-        {/* Artistic gold underline */}
-        <div className="w-24 h-[2px] mt-5 bg-gradient-to-r from-transparent via-[#d4af37] to-transparent opacity-70" />
+        {/* Underline */}
+        <motion.div
+          initial={{ scaleX: 0 }}
+          animate={{ scaleX: 1 }}
+          transition={{ duration: 1, delay: 0.4 }}
+          className="w-24 h-[2px] mt-4 bg-gradient-to-r from-transparent via-[#d4af37] to-transparent opacity-80"
+        />
 
-        {/* Subheading */}
-        <p className="max-w-3xl mt-6 text-[15px] md:text-lg text-white/70 leading-relaxed">
-          German high-value automotive parts, premium electronics, and seamless global
-          import–export operations delivered with uncompromised precision.
-        </p>
+        {/* TAGLINE */}
+        <motion.p
+          initial={{ opacity: 0, y: 10 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1, delay: 0.25 }}
+          className="
+            mt-5
+            text-[14px] sm:text-[17px] md:text-[20px]
+            text-white/85 font-light max-w-2xl leading-relaxed
+          "
+        >
+          Premium global logistics specializing in luxury automotive parts, high-value electronics,
+          and secure international freight — delivered with unmatched precision.
+        </motion.p>
 
-        {/* CTAs */}
-        <div className="flex gap-4 mt-10 flex-wrap justify-center">
-
-          {/* Left Button */}
+        {/* BUTTONS */}
+        <motion.div
+          initial={{ opacity: 0, y: 15 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1.1, delay: 0.35 }}
+          className="flex gap-4 mt-8"
+        >
+          {/* Quote */}
           <a
             href="#quote"
-            className="px-8 py-3 rounded-full text-[13px] md:text-sm uppercase tracking-wide
-            border border-[#d4af37]/40 text-[#f8ecc8]
-            hover:border-[#d4af37]/80 hover:shadow-[0_0_25px_rgba(212,175,55,0.25)]
-            backdrop-blur-md transition-all duration-300"
+            className="
+              px-7 sm:px-10 py-3.5 rounded-full
+              text-[12px] sm:text-sm uppercase tracking-[0.15em]
+              border border-[#d4af37]/50 text-[#f5e7b1]
+              backdrop-blur-md
+              hover:border-[#d4af37] hover:shadow-[0_0_20px_rgba(212,175,55,0.25)]
+              transition-all duration-300
+            "
           >
-            Get a Premium Quote
+            Request a Quote
           </a>
 
-          {/* Right Button */}
+          {/* Specialist */}
           <a
             href="#contact"
-            className="px-8 py-3 rounded-full text-[13px] md:text-sm uppercase tracking-wide
-            bg-gradient-to-r from-[#d4af37]/20 to-[#f8e7c2]/30
-            text-white border border-[#d4af37]/20
-            hover:from-[#d4af37]/35 hover:to-[#f8e7c2]/50
-            backdrop-blur-md transition-all duration-300
-            shadow-[0_8px_50px_rgba(212,175,55,0.18)]"
+            className="
+              px-7 sm:px-10 py-3.5 rounded-full
+              text-[12px] sm:text-sm uppercase tracking-[0.15em]
+              bg-gradient-to-r from-[#d4af37]/35 to-[#a37d24]/45
+              border border-[#d4af37]/40
+              text-white
+              hover:from-[#d4af37]/55 hover:to-[#a37d24]/70
+              shadow-[0_8px_35px_rgba(212,175,55,0.25)]
+              transition-all duration-300
+            "
           >
             Speak to a Specialist
           </a>
-
-        </div>
+        </motion.div>
 
       </div>
     </section>
