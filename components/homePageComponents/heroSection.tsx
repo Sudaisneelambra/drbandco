@@ -12,8 +12,7 @@ const  HeroSection =({moveToServiceSection}:{moveToServiceSection: () => void;})
   }
 
   return (
-    <header
-      id="home"
+    <div
       className="relative min-h-screen flex flex-col lg:flex-row items-center justify-between overflow-hidden bg-[#050505]"
     >
       {/* --- Background + Overlay --- */}
@@ -134,7 +133,7 @@ const  HeroSection =({moveToServiceSection}:{moveToServiceSection: () => void;})
           }),
         }}
       />
-    </header>
+    </div>
   );
 }
 

@@ -1,9 +1,18 @@
 "use client";
 
-import TravelHero from "../../components/travelPageComponents/travelHero";
-import DestinationCard from "../../components/travelPageComponents/destinationCard";
-import TravelToursSection from "../../components/travelPageComponents/travelAndTours";
+import dynamic from "next/dynamic";
 
+const TravelHero = dynamic(() => import("../../components/travelPageComponents/travelHero"), {
+  ssr: false,
+});
+
+const DestinationCard = dynamic(() => import("../../components/travelPageComponents/destinationCard"), {
+  ssr: false,
+});
+
+const TravelToursSection = dynamic(() => import("../../components/travelPageComponents/travelAndTours"), {
+  ssr: false,
+});
 
 const TravelAndTours = ()=>{
 
@@ -86,7 +95,7 @@ const TravelAndTours = ()=>{
 
     return (
         <>
-            <div className="mt-4">
+            <div className="mt-4" style={{backgroundColor:'red'}}>
                 <TravelHero />
                 <TravelToursSection/>
                 {destinations.map((destination, index) => (

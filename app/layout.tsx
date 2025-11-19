@@ -1,8 +1,10 @@
-import type { Metadata } from "next";
+"use client";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
-import Navbar from "../components/homePageComponents/navbar";
-import Footer from "@/components/homePageComponents/footer";
+import dynamic from "next/dynamic";
+
+const Navbar = dynamic(() => import("../components/homePageComponents/navbar"), { ssr: false });
+const Footer = dynamic(() => import("../components/homePageComponents/footer"), { ssr: false });
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -14,24 +16,15 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
-export const metadata: Metadata = {
-  title: "'DrB & Co - Global Excellence'",
-  description: "Luxury travel and world-class logistics solutions",
-};
 
-export default function RootLayout({
-  children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
+
+export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
-        <Navbar/>
+      <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
+        <Navbar />
         {children}
-        <Footer/>
+        <Footer />
       </body>
     </html>
   );
