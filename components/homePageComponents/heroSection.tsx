@@ -115,25 +115,7 @@ const  HeroSection =({moveToServiceSection}:{moveToServiceSection: () => void;})
       </div>
 
       {/* --- Schema.org Structured Data for SEO --- */}
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify({
-            '@context': 'https://schema.org',
-            '@type': 'Organization',
-            name: 'DrB & Co',
-            url: 'https://drbandco.com',
-            foundingDate: '2020',
-            sameAs: [
-              'https://linkedin.com/company/drbandco',
-              'https://instagram.com/drbandco',
-            ],
-            description:
-              'DrB & Co is a multinational business group operating across travel, logistics, and global trade sectors, established in 2020 and registered in UAE, Georgia, and India.',
-            logo: '/images/logo.png',
-          }),
-        }}
-      />
+
     </header>
   );
 }
