@@ -1,22 +1,19 @@
-"use client";
+import AutomotiveLogisticsSection from "./AutomotiveLogisticsSection";
+import ElectronicsLogisticsSection from "./ElectronicsLogisticsSection";
+import ImportExportLogisticsSection from "./ImportExportLogisticsSection";
+import LogisticsHeroSection from "./LogisticsHeroSection";
+import LogisticsSpecializations from "./LogisticsSpecialisation";
+import WhyChooseUsSection from "./WhyChooseUsSection";
 
-import { useEffect } from "react";
-
-const Logistics = ()=>{
-
-        useEffect(()=>{
-                console.log('works her');
-                
-        },[])
-
-        return(
-            <>
-                <div className=" pt-10 w-full h-screen flex justify-center items-center">
-                    <h1 className="">logistics</h1>
-                </div>
-
-            </>
-        )
+export default function Page() {
+  return (
+    <div className="bg-black">
+      <LogisticsHeroSection />
+      <LogisticsSpecializations/>
+      <AutomotiveLogisticsSection/>
+      <ElectronicsLogisticsSection/>
+      <ImportExportLogisticsSection/>
+      <WhyChooseUsSection/>
+    </div>
+  );
 }
-
-export default Logistics;
