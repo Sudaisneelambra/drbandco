@@ -9,6 +9,7 @@ export default function Navbar() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const router = useRouter();
   const pathName = usePathname();
+  const [storedIndex, setStoredIndex] = useState(0);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -17,6 +18,14 @@ export default function Navbar() {
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
+
+  useEffect(() => {
+    if (!pathName) return;
+
+    if (pathName === "/") setStoredIndex(0);
+    else if (pathName === "/travel-and-tours") setStoredIndex(1);
+    else if (pathName === "/logistics") setStoredIndex(2);
+  }, [pathName]);
 
   const navLinks = [
     { name: "Home", target: "home" },
@@ -269,7 +278,10 @@ export default function Navbar() {
                     key={index}
                     type="button"
                     aria-label={`Go to ${link.name}`}
-                    onClick={() => goToNavigation(link.target)}
+                    onClick={() => {
+                      goToNavigation(link.target);
+                      setStoredIndex(index);
+                    }}
                     className="group relative py-2 cursor-pointer"
                   >
                     <span
@@ -289,7 +301,7 @@ export default function Navbar() {
 
                     {/* Premium Double Underline */}
                     <div
-                      className="absolute -bottom-0 left-0 w-0 h-[2px] group-hover:w-full transition-all duration-700"
+                      className={`absolute -bottom-0 left-0 w-0 h-[2px] ${index === storedIndex ? "w-full" : "w-0 group-hover:w-full"} transition-all duration-700`}
                       style={{ backgroundColor: theme.borderColor }}
                     >
                       <div

@@ -22,7 +22,7 @@ const  MissionAndVision =()=> {
 
   return (
     <section ref={sectionRef} id="mission-vision" className="relative bg-black text-white overflow-hidden">
-      <div className="max-w-[1400px] mx-auto px-6 py-24 md:py-36">
+      <div className="max-w-[1400px] mx-auto px-6 py-10 lg:py-0">
         {/* Header */}
         <div className="text-center mb-14 md:mb-20">
           <div className="flex items-center justify-center space-x-3">

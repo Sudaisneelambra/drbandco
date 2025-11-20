@@ -24,12 +24,14 @@ export default function AboutSection() {
     {
       year: '2020',
       heading: 'The Beginning of Vision',
-      text: `Founded in 2020, DrB & Co began as a vision — to build a company that blends ambition, excellence, and global reach. What started as a single travel venture has evolved into a multinational business group.`,
+      text: `Founded in 2020, DrB Group & Co began as a vision — to build a company that blends ambition, excellence, and global reach. What started as a single travel venture has evolved into a multinational business group, now proudly registered in the UAE, Georgia, and India, and expanding its footprint into the United Kingdom.
+`,
     },
     {
       year: '2022',
       heading: 'Expansion & Excellence',
-      text: `By 2022, our growth accelerated as we obtained our Import–Export Trading Licence, expanding into global logistics and international trade. DrB Travels and DrB Logistics together formed our global foundation.`,
+      text: `Our journey began with DrB Travels, redefining the art of travel through bespoke experiences and impeccable service. By 2022, our growth accelerated as we obtained our Import–Export Trading Licence, expanding into global logistics and international trade.
+`,
     },
     {
       year: 'Today',
@@ -42,7 +44,7 @@ export default function AboutSection() {
     <section
       id="experience"
       ref={sectionRef}
-      className="relative bg-black text-white overflow-hidden py-28 md:py-40"
+      className="relative bg-black text-white overflow-hidden lg:py-0 py-10"
     >
       {/* Fine grain to make black feel premium */}
       <div
@@ -76,7 +78,7 @@ export default function AboutSection() {
             transition={{ duration: 1, delay: 0.2 }}
             className="text-2xl md:text-4xl font-serif font-bold bg-gradient-to-br from-[#f5e7b1] via-[#d4af37] to-[#a37d24] bg-clip-text text-transparent"
           >
-            The DrB Experience
+            The DrB Group Experience
           </motion.h2>
 
           <motion.p

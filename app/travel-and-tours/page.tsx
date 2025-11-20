@@ -106,6 +106,21 @@ const TravelAndTours = ()=>{
                 <TravelHero goToDestination={goToDestination} />
                 <TravelToursSection/>
                 <div className="" id="destinations">
+                  <h1 className="text-3xl md:text-5xl font-serif font-bold  leading-tight text-black bg-[white] w-full text-center">
+                    <span
+                    className="bg-clip-text text-transparent"
+                    style={{
+                      background: `linear-gradient(to bottom right,
+                      #00c7ff33,
+                      #00c7ff,
+                      #00c7ff
+                      )`,
+                      backgroundClip: "text",
+                    }}
+            >
+              Destinations
+            </span>
+                  </h1>
                   {destinations.map((destination, index) => (
                       <DestinationCard key={index} {...destination} />
                   ))}

@@ -160,7 +160,7 @@ const Footer = () => {
               {[Facebook, Twitter, Instagram, Linkedin].map((Icon, i) => (
                 <a
                   key={i}
-                  href="#"
+                  href=""
                   className={`group relative w-9 h-9 flex items-center justify-center border transition-all duration-500`}
                   style={{ borderColor: theme.borderColor + "33" }}
                 >
@@ -258,7 +258,7 @@ const Footer = () => {
               {supportLinks.map((link) => (
                 <li key={link}>
                   <a
-                    href="#"
+                    href=""
                     className="inline-flex cursor-pointer items-center gap-2 group text-[11px] transition-colors duration-500"
                     style={{ color: theme.textColor + 80 }}
                     onMouseEnter={(e) =>
@@ -391,7 +391,7 @@ const Footer = () => {
               className="text-[9px] tracking-[0.2em] uppercase"
               style={{ color: theme.textColor + 80 }}
             >
-              © {currentYear} DrB & Co. All rights reserved.
+              © {currentYear} DrB Group & Co. All rights reserved.
             </p>
             <div
               className="w-8 h-px"

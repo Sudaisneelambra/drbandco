@@ -47,7 +47,7 @@ const  HeroSection =({moveToServiceSection}:{moveToServiceSection: () => void;})
           }`}
         >
           <span className="bg-gradient-to-br from-[#F6E7A2] via-[#D4AF37] to-[#8C6C1A] bg-clip-text text-transparent">
-            DrB & Co
+            DrB Group & Co
           </span>
         </h1>
 

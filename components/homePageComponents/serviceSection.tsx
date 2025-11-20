@@ -278,9 +278,10 @@ const OptimizedServiceSection = () => {
         "Private itineraries, premium hospitality, and seamless coordination — crafted for individuals and enterprises that expect more.",
       services: [
         "VIP Itineraries",
-        "Corporate MICE",
-        "Visa & Insurance",
+        "Corporate MICE Travel",
+        "Visa & Travel Insurance",
         "Chauffeur & Meet-and-Greet",
+        "Luxury Accommodation & Transfers"
       ],
       images: [
         { src: "/images/europe.webp", alt: "Popular Europe destinations" },
@@ -303,10 +304,11 @@ const OptimizedServiceSection = () => {
       description:
         "International trade and multimodal logistics with quality controls, compliance, and real-time coordination across borders.",
       services: [
-        "FCL/LCL Ocean",
-        "Air Freight",
-        "Customs & DG",
-        "Warehousing & Last-Mile",
+        "FCL / LCL Ocean Freight",
+        "Air Freight Solutions",
+        "Customs Clearance & DG Handling",
+        "Warehousing & Last-Mile Delivery",
+        "German Luxury Auto Parts Export"
       ],
       images: [
         { src: "/images/logistics.webp", alt: "Logistics operations" },

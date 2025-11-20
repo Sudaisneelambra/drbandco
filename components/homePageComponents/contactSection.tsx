@@ -22,7 +22,7 @@ const ContactSection = () => {
   return (
     <section
       id="contact"
-      className="relative bg-black text-white py-28 md:py-40 overflow-hidden"
+      className="relative bg-black text-white py-10 lg:py-0 overflow-hidden"
     >
       {/* Subtle golden radial glow */}
 
