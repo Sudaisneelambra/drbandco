@@ -53,10 +53,10 @@ export default function Navbar() {
   // Theme variables
   const theme = isTravelPage
     ? {
-        bgColor: "#d4f4ff",
+        bgColor: "#ffffff",
         textColor: "#0000",
-        borderColor: "#38bdf8",
-        hoverColor: "#0ea5e9",
+        borderColor: "#00c7ff",
+        hoverColor: "#00c7ff",
         iconBg: "#cceeff",
         buttonText: "white",
       }
@@ -241,7 +241,7 @@ export default function Navbar() {
                         WebkitBackgroundClip: "text", // for Safari
                       }}
                     >
-                      DrB & Co
+                      DrB GROUP & Co
                     </span>
 
                     <span
@@ -358,7 +358,14 @@ export default function Navbar() {
               <button
                 type="button"
                 onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-                className="lg:hidden w-10 h-10 flex items-center justify-center text-[#d4af37] hover:text-[#ffd700] transition-colors duration-300"
+                className="lg:hidden w-10 h-10 flex items-center justify-center transition-colors duration-300"
+                style={{ color: theme.borderColor }}
+                onMouseEnter={(e) =>
+                  (e.currentTarget.style.color = theme.hoverColor)
+                }
+                onMouseLeave={(e) =>
+                  (e.currentTarget.style.color = theme.borderColor)
+                }
                 aria-label="Toggle menu"
                 aria-expanded={isMobileMenuOpen}
                 aria-controls="mobile-menu"
@@ -373,7 +380,12 @@ export default function Navbar() {
           </div>
 
           {/* Decorative Bottom Border */}
-          <div className="h-[1px] bg-gradient-to-r from-transparent via-[#d4af37]/20 to-transparent"></div>
+          <div
+            className="h-[1px] bg-gradient-to-r"
+            style={{
+              background: `linear-gradient(to right, transparent, ${theme.borderColor}33, transparent)`,
+            }}
+          ></div>
         </div>
 
         {/* Mobile Menu */}
@@ -384,7 +396,13 @@ export default function Navbar() {
               : "max-h-0 opacity-0 overflow-hidden"
           }`}
         >
-          <div className="bg-black/95 backdrop-blur-3xl border-b border-[#d4af37]/10">
+          <div
+            className=" backdrop-blur-3xl border-b"
+            style={{
+              backgroundColor: theme.bgColor + "4A",
+              borderColor: theme.borderColor + "1A", // ~10% opacity
+            }}
+          >
             <div className="px-8 py-12">
               {/* Mobile Links */}
               <div className="space-y-6 mb-10 cursor-pointer">
@@ -397,12 +415,18 @@ export default function Navbar() {
                       setIsMobileMenuOpen(false);
                       goToNavigation(link.target);
                     }}
-                    className="group flex  items-center justify-between py-3 border-b border-white/5 hover:border-[#d4af37]/30 transition-all duration-300"
+                    className={`group flex items-center justify-between py-3 border-b border-white/5 hover:border-[${theme.borderColor}4D] transition-all duration-300`}
                   >
-                    <span className="text-[13px] font-light tracking-[0.25em] uppercase text-white/60 group-hover:text-white transition-colors duration-300">
+                    <span
+                      className={`text-[13px] font-light tracking-[0.25em] uppercase text-${
+                        theme.textColor + 80
+                      } group-hover:text-white transition-colors duration-300`}
+                    >
                       {link.name}
                     </span>
-                    <ArrowUpRight className="w-4 h-4 text-[#d4af37]/40 group-hover:text-[#d4af37] group-hover:rotate-45 transition-all duration-300" />
+                    <ArrowUpRight
+                      className={`w-4 h-4 text-${theme.hoverColor} !group-hover:text-${theme.hoverColor} group-hover:rotate-45 transition-all duration-300`}
+                    />
                   </button>
                 ))}
               </div>
@@ -415,7 +439,14 @@ export default function Navbar() {
                   setIsMobileMenuOpen(false);
                   connectToWhatsapp();
                 }}
-                className="flex items-center justify-center space-x-2 w-full px-8 py-4 bg-gradient-to-r from-[#d4af37] to-[#ffd700] text-black rounded-sm text-[11px] font-medium tracking-[0.2em] uppercase hover:shadow-[0_0_50px_rgba(212,175,55,0.6)] transition-all duration-500"
+                className="flex items-center justify-center space-x-2 w-full px-8 py-4 rounded-sm text-[11px] font-medium tracking-[0.2em] uppercase text-black transition-all duration-500"
+                style={{
+                  background: `linear-gradient(to right, ${theme.borderColor}, ${theme.hoverColor})`,
+                  boxShadow: `0 0 50px rgba(${parseInt(theme.borderColor.slice(1, 3), 16)},${parseInt(
+                    theme.borderColor.slice(3, 5),
+                    16
+                  )},${parseInt(theme.borderColor.slice(5, 7), 16)}, 0.6)`,
+                }}
               >
                 <span>Connect With Us</span>
                 <ArrowUpRight className="w-4 h-4" />

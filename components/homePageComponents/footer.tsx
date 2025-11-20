@@ -55,10 +55,10 @@ const Footer = () => {
   // Theme variables
   const theme = isTravelPage
     ? {
-        bgColor: "#d4f4ff",
+        bgColor: "#ffffff",
         textColor: "#0000",
-        borderColor: "#38bdf8",
-        hoverColor: "#0ea5e9",
+        borderColor: "#00c7ff",
+        hoverColor: "#00c7ff",
         iconBg: "#cceeff",
         buttonText: "white",
       }

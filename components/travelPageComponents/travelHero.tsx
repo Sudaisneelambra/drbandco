@@ -33,6 +33,15 @@ const TravelHero = () => {
     };
   }, []);
 
+  const theme = {
+    bgColor: "#ffffff",
+    textColor: "#0000",
+    borderColor: "#00c7ff",
+    hoverColor: "#00c7ff",
+    iconBg: "#cceeff",
+    buttonText: "white",
+  };
+
   return (
     <div ref={heroRef} className="relative h-screen w-full overflow-hidden">
       {/* Background */}
@@ -42,7 +51,8 @@ const TravelHero = () => {
           style={{
             backgroundImage:
               "url('https://images.unsplash.com/photo-1488646953014-85cb44e25828?w=1920&q=80')",
-            backgroundColor: "#1a1a1a",
+            backgroundColor: theme.bgColor,
+            transform: "scale(1.1)",
           }}
         />
         <div
@@ -52,21 +62,31 @@ const TravelHero = () => {
               "url('https://images.unsplash.com/photo-1488646953014-85cb44e25828?w=1920&q=80')",
             backgroundSize: "cover",
             backgroundPosition: "center",
-            filter: "blur(8px) brightness(0.6)",
+            filter: "blur(0px) brightness(0.6)",
             transform: "scale(1.1)",
           }}
         />
         <div className="absolute inset-0 bg-gradient-to-br from-black/60 via-black/50 to-black/60 z-10" />
-        <div className="absolute inset-0 bg-gradient-to-tr from-amber-900/30 via-transparent to-yellow-600/20 z-10" />
+        <div
+          className="absolute inset-0 bg-gradient-to-tr z-10"
+          style={{
+            background: `linear-gradient(
+              to top right,
+              ${theme.borderColor}4D,  /* ~30% opacity */
+              transparent,
+              ${theme.iconBg}33          /* ~20% opacity */
+            )`,
+          }}
+        />
       </div>
 
       {/* Flight Path */}
       <svg className="absolute inset-0 w-full h-full" style={{ zIndex: 20 }}>
         <defs>
           <linearGradient id="pathGradient" x1="0%" y1="100%" x2="100%" y2="0%">
-            <stop offset="0%" stopColor="rgba(255, 215, 0, 0.3)" />
-            <stop offset="50%" stopColor="rgba(255, 193, 7, 0.7)" />
-            <stop offset="100%" stopColor="rgba(255, 215, 0, 0.2)" />
+            <stop offset="0%" stopColor={theme.bgColor} />
+            <stop offset="50%" stopColor={theme.borderColor} />
+            <stop offset="100%" stopColor={theme.bgColor} />
           </linearGradient>
         </defs>
         <path
@@ -100,11 +120,16 @@ const TravelHero = () => {
           >
             <path
               d="M21 16v-2l-8-5V3.5c0-.83-.67-1.5-1.5-1.5S10 2.67 10 3.5V9l-8 5v2l8-2.5V19l-2 1.5V22l3.5-1 3.5 1v-1.5L13 19v-5.5l8 2.5z"
-              fill="#FFD700"
+              fill={theme.hoverColor}
               className="airplane-body"
             />
           </svg>
-          <div className="absolute inset-0 bg-yellow-500/40 blur-xl rounded-full animate-pulse" />
+          <div
+            className="absolute inset-0 blur-xl rounded-full animate-pulse"
+            style={{
+              backgroundColor: theme.hoverColor,
+            }}
+          />
         </div>
       </div>
 
@@ -118,19 +143,27 @@ const TravelHero = () => {
                 : "opacity-0 translate-y-10"
             }`}
             style={{
-              textShadow: "0 4px 20px rgba(0,0,0,0.8)",
+              textShadow: `0 4px 20px ${theme.iconBg}`,
               letterSpacing: "-0.02em",
             }}
           >
             Your Journey
             <br />
-            <span className="bg-gradient-to-r from-yellow-400 via-amber-500 to-yellow-600 bg-clip-text text-transparent">
+            <span
+              className="bg-clip-text text-transparent"
+              style={{
+                background: `linear-gradient(to right, ${theme.borderColor}, ${theme.hoverColor}, ${theme.iconBg})`,
+                backgroundClip: "text",
+              }}
+            >
               Begins Here
             </span>
           </h1>
 
           <p
-            className={`text-lg md:text-xl text-gray-300 mb-10 font-light transition-all duration-1000 delay-300 ${
+            className={`text-lg md:text-xl text-${
+              theme.bgColor
+            } mb-10 font-light transition-all duration-1000 delay-300 ${
               isVisible
                 ? "opacity-100 translate-y-0"
                 : "opacity-0 translate-y-10"
@@ -149,9 +182,27 @@ const TravelHero = () => {
                 : "opacity-0 translate-y-10"
             }`}
           >
-            <button className="group relative px-8 py-4 bg-gradient-to-r from-yellow-500 via-amber-500 to-yellow-600 text-black font-bold rounded-full overflow-hidden transition-all duration-300 hover:scale-105 hover:shadow-[0_0_30px_rgba(255,215,0,0.5)] hover:shadow-yellow-500/50">
+            <button
+              className="group relative px-8 py-4 text-black font-bold rounded-full overflow-hidden transition-all duration-300 hover:scale-105"
+              style={{
+                background: `linear-gradient(to right, ${theme.borderColor}, ${theme.hoverColor} 50%, ${theme.iconBg})`,
+                color: theme.textColor +80,
+                boxShadow: `0 0 30px ${theme.borderColor}80`, // hover shadow color
+              }}
+              onMouseEnter={(e) => {
+                e.currentTarget.style.boxShadow = `0 0 30px ${theme.borderColor}80`;
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.boxShadow = "none";
+              }}
+            >
               <span className="relative z-10">Explore Destinations</span>
-              <div className="absolute inset-0 bg-gradient-to-r from-yellow-400 to-amber-400 transform scale-x-0 group-hover:scale-x-100 transition-transform origin-left duration-300" />
+              <div
+                className="absolute inset-0 transform scale-x-0 group-hover:scale-x-100 transition-transform origin-left duration-300"
+                style={{
+                  background: `linear-gradient(to right, ${theme.borderColor}, ${theme.hoverColor})`,
+                }}
+              />
             </button>
 
             {/* <button className="px-8 py-4 bg-transparent text-yellow-500 font-bold rounded-full border-2 border-yellow-500/70 backdrop-blur-sm transition-all duration-300 hover:bg-yellow-500/10 hover:border-yellow-400 hover:scale-105 hover:shadow-[0_0_20px_rgba(255,215,0,0.3)]">
@@ -168,7 +219,7 @@ const TravelHero = () => {
             }`}
           >
             {[
-              { label: "Destinations", value: "150+" },
+              { label: "Destinations", value: "50+" },
               { label: "Happy Travelers", value: "50K+" },
               { label: "Rating", value: "4.9★" },
             ].map((item) => (
@@ -176,10 +227,18 @@ const TravelHero = () => {
                 key={item.label}
                 className="text-center group cursor-pointer"
               >
-                <div className="text-3xl font-bold bg-gradient-to-r from-yellow-400 to-amber-500 bg-clip-text text-transparent mb-2 transition-transform duration-300 group-hover:scale-110">
+                <div
+                  className="text-3xl font-bold bg-clip-text text-transparent mb-2 transition-transform duration-300 group-hover:scale-110"
+                  style={{
+                    background: `linear-gradient(to right, ${theme.borderColor}, ${theme.hoverColor})`,
+                    backgroundClip: "text",
+                  }}
+                >
                   {item.value}
                 </div>
-                <div className="text-sm text-gray-400 font-light">
+                <div
+                  className={`text-sm text-${theme.textColor + 80} font-light`}
+                >
                   {item.label}
                 </div>
               </div>
