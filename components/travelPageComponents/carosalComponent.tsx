@@ -5,8 +5,16 @@ import Image from "next/image";
 
 interface ImageCarouselProps {
   images: { src: string; alt?: string }[];
+  theme: {
+    bgColor: string;
+    textColor: string;
+    borderColor: string;
+    hoverColor: string;
+    iconColor: string;
+    buttonColor: string;
+  };
 }
-const ImageCarousel: React.FC<ImageCarouselProps> = ({ images }) => {
+const ImageCarousel: React.FC<ImageCarouselProps> = ({ images, theme }) => {
   const [current, setCurrent] = useState(0);
   const length = images.length;
   const intervalRef = useRef<NodeJS.Timeout | null>(null);
@@ -35,7 +43,7 @@ const ImageCarousel: React.FC<ImageCarouselProps> = ({ images }) => {
   return (
     <div className="relative w-full h-[350px] sm:h-[400px] flex items-center justify-center overflow-hidden">
       {/* Background glow effect */}
-      <div className="absolute inset-0 bg-gradient-to-b from-transparent via-black/5 to-black/20 pointer-events-none z-10"></div>
+      <div className="absolute inset-0  pointer-events-none z-10"></div>
 
       {images.map((img, index) => {
         const isActive = index === current;
@@ -64,13 +72,22 @@ const ImageCarousel: React.FC<ImageCarouselProps> = ({ images }) => {
           <div
             key={index}
             className={`absolute transition-all duration-700 ease-in-out overflow-hidden 
-                ${isActive ? "rounded-lg shadow-2xl shadow-yellow-900/30" : "rounded-xl"} 
-                ${isActive ? "w-[85%] sm:w-[80%] max-w-[600px] sm:max-w-[500px] h-[300px] sm:h-[400px]" : "w-[70%] sm:w-[60%] max-w-[500px] sm:max-w-[400px] h-[250px] sm:h-[300px]"}`}
+                ${
+                  isActive
+                    ? `rounded-lg shadow-2xl shadow-${theme.borderColor}`
+                    : "rounded-xl"
+                } 
+                ${
+                  isActive
+                    ? "w-[85%] sm:w-[80%] max-w-[600px] sm:max-w-[500px] h-[300px] sm:h-[400px]"
+                    : "w-[70%] sm:w-[60%] max-w-[500px] sm:max-w-[400px] h-[250px] sm:h-[300px]"
+                }`}
             style={{
-                transform,
-                zIndex,
-                opacity,
-                border: isActive ? "2px solid rgba(255, 215, 0, 0.3)" : "none",
+              transform,
+              zIndex,
+              opacity,
+              border: isActive ? `2px solid ${theme.borderColor}` : "none",
+              backgroundColor: "red",
             }}
           >
             <Image
@@ -80,7 +97,9 @@ const ImageCarousel: React.FC<ImageCarouselProps> = ({ images }) => {
               className="w-full h-full object-cover"
             />
             {isActive && (
-              <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent pointer-events-none"></div>
+              <div
+                className={`absolute inset-0 bg-gradient-to-t from-${theme.bgColor} via-transparent to-transparent pointer-events-none`}
+              ></div>
             )}
           </div>
         );
@@ -95,7 +114,9 @@ const ImageCarousel: React.FC<ImageCarouselProps> = ({ images }) => {
         className="absolute left-2 sm:left-0 p-2 sm:p-3 cursor-pointer transition-all duration-300 z-40 hover:scale-110 active:scale-95 shadow-lg shadow-yellow-900/20"
         aria-label="Previous slide"
       >
-        <ChevronLeft size={24} className="text-yellow-500" />
+        <ChevronLeft size={24} style={{
+          color:theme.hoverColor
+        }} />
       </button>
 
       <button
@@ -106,7 +127,9 @@ const ImageCarousel: React.FC<ImageCarouselProps> = ({ images }) => {
         className="absolute right-2 sm:right-0 p-2 sm:p-3 cursor-pointer transition-all duration-300 z-40 hover:scale-110 active:scale-95 shadow-lg shadow-yellow-900/20"
         aria-label="Next slide"
       >
-        <ChevronRight size={24} className="text-yellow-500" />
+        <ChevronRight size={24} style={{
+          color:theme.hoverColor
+        }} />
       </button>
 
       {/* Dot indicators with gold theme */}
@@ -120,8 +143,9 @@ const ImageCarousel: React.FC<ImageCarouselProps> = ({ images }) => {
             }}
             className={`transition-all duration-300 ${
               index === current
-                ? "w-8 h-2 bg-gradient-to-r from-yellow-600 to-yellow-400 shadow-lg shadow-yellow-500/50"
-                : "w-2 h-2 bg-white/40 hover:bg-white/60"
+                ? `w-8 h-2 bg-gradient-to-r from-[#00c7ff] to-[#6fe3ff] 
+                shadow-lg shadow-[rgba(0,199,255,0.6)]`
+                : "w-2 h-2 bg-white/40 hover:bg-white/70"
             } rounded-full`}
             aria-label={`Go to slide ${index + 1}`}
           />

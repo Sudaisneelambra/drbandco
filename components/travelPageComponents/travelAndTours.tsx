@@ -1,12 +1,12 @@
 "use client";
 
-import { 
-  Plane, 
-  FileText, 
-  Hotel, 
-  Users, 
-  Car, 
-  Star, 
+import {
+  Plane,
+  FileText,
+  Hotel,
+  Users,
+  Car,
+  Star,
   MapPin,
   Calendar,
   Shield,
@@ -62,56 +62,129 @@ const TravelToursSection = () => {
     },
   ];
 
+  const theme = {
+    bgColor: "#ffffff",
+    textColor: "#0000",
+    borderColor: "#00c7ff",
+    hoverColor: "#00c7ff",
+    iconBg: "#cceeff",
+    buttonText: "white",
+  };
+
   return (
-    <section className="relative py-20 md:py-28 px-4 bg-black text-white overflow-hidden">
+    <section
+      className={`relative pt-10 md:pt-16 px-4 overflow-hidden backdrop-blur-lg`}
+      style={{ backgroundColor: theme.bgColor }}
+    >
       {/* Premium grain texture */}
-      <div
-        className="pointer-events-none absolute inset-0 opacity-[0.04]"
-      />
+      <div className="pointer-events-none absolute inset-0 opacity-[0.04]" />
 
       {/* Floating gold lights */}
       <div className="absolute inset-0 pointer-events-none overflow-hidden">
-        <div className="absolute top-20 left-10 w-96 h-96 bg-[#d4af37]/10 rounded-full blur-3xl animate-pulse" />
-        <div className="absolute bottom-40 right-20 w-[500px] h-[500px] bg-[#ffd700]/8 rounded-full blur-3xl" 
-          style={{ animation: 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite' }} />
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-[#d4af37]/5 rounded-full blur-3xl" />
+        <div
+          className="absolute top-20 left-10 w-96 h-96 rounded-full blur-3xl animate-pulse"
+          style={{ backgroundColor: `${theme.borderColor}1A` }}
+        />
+        <div
+          className="absolute bottom-40 right-20 w-[500px] h-[500px] rounded-full blur-3xl"
+          style={{
+            backgroundColor: `${theme.borderColor}14`, // ~8% opacity
+            animation: "pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite",
+          }}
+        />
+        <div
+          className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full blur-3xl"
+          style={{
+            backgroundColor: `${theme.borderColor}0D`, // 5% opacity
+          }}
+        />
       </div>
 
       <div className="max-w-7xl mx-auto relative z-10">
         {/* Header */}
         <div className="text-center mb-16 md:mb-20">
           <div className="flex items-center justify-center space-x-3 mb-6">
-            <div className="w-16 h-[1px] bg-gradient-to-r from-transparent to-[#d4af37]" />
-            <span className="text-[10px] uppercase tracking-[0.3em] text-[#d4af37]/80 font-light">
+            <div
+              className="w-16 h-[1px] bg-gradient-to-r from-transparent"
+              style={{
+                backgroundImage: `linear-gradient(to right, transparent, ${theme.borderColor})`,
+              }}
+            />
+            <span
+              className="text-[12px] uppercase tracking-[0.3em] font-bold"
+              style={{ color: `${theme.borderColor}CC` }} // CC = 80% opacity
+            >
               Premium Travel & Tours
             </span>
-            <div className="w-16 h-[1px] bg-gradient-to-l from-transparent to-[#d4af37]" />
+            <div
+              className="w-16 h-[1px] bg-gradient-to-l from-transparent"
+              style={{
+                backgroundImage: `linear-gradient(to left, transparent, ${theme.borderColor})`,
+              }}
+            />
           </div>
 
-          <h2 className="text-3xl md:text-5xl font-serif font-bold mb-6 leading-tight">
+          <h2 className="text-3xl md:text-5xl font-serif font-bold mb-6 leading-tight text-black">
             Your Journey,{" "}
-            <span className="bg-gradient-to-br from-[#f5e7b1] via-[#d4af37] to-[#a37d24] bg-clip-text text-transparent">
+            <span
+              className="bg-clip-text text-transparent"
+              style={{
+                background: `linear-gradient(to bottom right,
+                ${theme.borderColor}33,
+                ${theme.borderColor},
+                ${theme.hoverColor}
+                )`,
+                backgroundClip: "text",
+              }}
+            >
               Our Expertise
             </span>
           </h2>
 
-          <p className="text-base md:text-lg text-white/60 max-w-2xl mx-auto font-light leading-relaxed">
-            Discover the world with confidence through our comprehensive travel solutions
-            and carefully curated tourist experiences.
+          <p
+            className="text-base md:text-lg max-w-2xl mx-auto font-light leading-relaxed transition-colors duration-300"
+            style={{
+              color: theme.textColor + "60", // 60% opacity like white/60
+            }}
+          >
+            Discover the world with confidence through our comprehensive travel
+            solutions and carefully curated tourist experiences.
           </p>
         </div>
 
         {/* Tourist Services */}
         <div className="mb-24">
           <div className="flex items-center gap-4 mb-10">
-            <div className="w-14 h-14 rounded-xl bg-gradient-to-br from-[#d4af37]/20 to-transparent border border-[#d4af37]/30 flex items-center justify-center">
-              <MapPin className="w-7 h-7 text-[#d4af37]" />
+            <div
+              className="w-14 h-14 rounded-xl flex items-center justify-center"
+              style={{
+                background: `linear-gradient(to bottom right, ${theme.borderColor}33, transparent)`,
+                border: `1px solid ${theme.borderColor}4D`, // ~30% opacity
+              }}
+            >
+              <MapPin
+                className="w-7 h-7"
+                style={{ color: theme.borderColor }}
+              />
             </div>
             <div>
-              <h3 className="text-2xl md:text-3xl font-serif font-bold bg-gradient-to-br from-[#f5e7b1] via-[#d4af37] to-[#a37d24] bg-clip-text text-transparent">
+              <h3
+                className="text-2xl md:text-3xl font-serif font-bold bg-clip-text text-transparent"
+                style={{
+                  backgroundImage: `linear-gradient(
+                    to bottom right,
+                    ${theme.borderColor}33,
+                    ${theme.borderColor},
+                    ${theme.borderColor}aa
+                  )`,
+                }}
+              >
                 Tourist Services
               </h3>
-              <p className="text-[#d4af37]/60 font-light text-sm tracking-wide">
+              <p
+                className="font-light text-sm tracking-wide"
+                style={{ color: `${theme.textColor}50` }} // 60% opacity
+              >
                 Complete packages for unforgettable experiences
               </p>
             </div>
@@ -121,49 +194,105 @@ const TravelToursSection = () => {
             {touristServices.map((service, index) => (
               <div
                 key={index}
-                className="group relative bg-gradient-to-b from-[#0b0b0b] via-black to-[#0b0b0b] rounded-2xl p-8 border border-[#d4af37]/25 hover:border-[#d4af37]/50 transition-all duration-500 hover:shadow-[0_0_30px_rgba(212,175,55,0.15)]"
+                className="group relative rounded-2xl p-8 transition-all duration-500"
+                style={{
+                  background: `linear-gradient(to bottom, ${theme.hoverColor} , ${theme.hoverColor} ,${theme.hoverColor} )`,
+                  border: `1px solid ${theme.borderColor}40`, // 25% opacity
+                  boxShadow: `0 0 30px ${theme.borderColor}26`, // ~15% opacity
+                }}
+                onMouseEnter={(e) => {
+                  e.currentTarget.style.border = `1px solid ${theme.borderColor}80`; // 50% opacity
+                  e.currentTarget.style.boxShadow = `0 0 30px ${theme.borderColor}33`; // ~20% opacity
+                }}
+                onMouseLeave={(e) => {
+                  e.currentTarget.style.border = `1px solid ${theme.borderColor}40`;
+                  e.currentTarget.style.boxShadow = `0 0 30px ${theme.borderColor}26`;
+                }}
               >
                 {/* Light sweep effect */}
-                <div className="pointer-events-none absolute inset-0 bg-gradient-to-r from-transparent via-[#d4af37]/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700" 
-                  style={{ animation: 'sweep 2s linear infinite' }} />
+                <div
+                  className="pointer-events-none absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-700"
+                  style={{
+                    animation: "sweep 2s linear infinite",
+                    background: `linear-gradient(to right, 
+                    transparent, 
+                    ${theme.borderColor}0D, 
+                    transparent
+                  )`,
+                  }}
+                />
 
                 <div className="relative z-10">
-                  <div className="w-16 h-16 rounded-xl bg-gradient-to-br from-[#d4af37]/20 to-transparent border border-[#d4af37]/30 flex items-center justify-center mb-5 group-hover:scale-110 group-hover:border-[#d4af37]/50 transition-all duration-300">
-                    <service.icon className="w-8 h-8 text-[#d4af37]" />
+                  <div
+                    className={`w-16 h-16 rounded-xl border border-${theme.borderColor} flex items-center justify-center mb-5 group-hover:scale-110 group-hover:border-${theme.bgColor} transition-all duration-300`}
+                    style={{
+                      backgroundImage: `linear-gradient(
+                          to bottom right,
+                          ${theme.bgColor}33,
+                          ${theme.borderColor},
+                          ${theme.bgColor}aa
+                        )`,
+                    }}
+                  >
+                    <service.icon className={`w-8 h-8 text-${theme.bgColor}`} />
                   </div>
 
-                  <h4 className="text-xl font-serif font-semibold text-white mb-3 flex items-center gap-2 group-hover:text-[#f5e7b1] transition-colors duration-300">
+                  <h4
+                    className={`text-xl font-serif font-semibold text-white mb-3 flex items-center gap-2 group-hover:text-[#f5e7b1] transition-colors duration-300`}
+                  >
                     {service.title}
-                    <Star className="w-4 h-4 text-[#d4af37] opacity-70" />
+                    <Star
+                      className={`w-4 h-4 text-${theme.bgColor} opacity-70`}
+                    />
                   </h4>
 
-                  <p className="text-white/60 mb-5 font-light leading-relaxed text-sm">
+                  <p
+                    className={` mb-5 font-light leading-relaxed text-sm`}
+                    style={{
+                      color: theme.textColor + 20,
+                    }}
+                  >
                     {service.description}
                   </p>
-
-                  <div className="flex items-center gap-2 text-[#d4af37] text-sm font-light tracking-wider group-hover:gap-3 transition-all duration-300">
-                    <span>Learn more</span>
-                    <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-                  </div>
                 </div>
               </div>
             ))}
           </div>
-
-        
         </div>
 
         {/* Travel Services */}
         <div className="!mb-20 mt-8">
           <div className="flex items-center gap-4 mb-10">
-            <div className="w-14 h-14 rounded-xl bg-gradient-to-br from-[#d4af37]/20 to-transparent border border-[#d4af37]/30 flex items-center justify-center">
-              <Shield className="w-7 h-7 text-[#d4af37]" />
+            <div
+              className="w-14 h-14 rounded-xl flex items-center justify-center"
+              style={{
+                background: `linear-gradient(to bottom right, ${theme.borderColor}33, transparent)`,
+                border: `1px solid ${theme.borderColor}4D`, // ~30% opacity
+              }}
+            >
+              <Shield
+                className="w-7 h-7"
+                style={{ color: theme.borderColor }}
+              />
             </div>
             <div>
-              <h3 className="text-2xl md:text-3xl font-serif font-bold bg-gradient-to-br from-[#f5e7b1] via-[#d4af37] to-[#a37d24] bg-clip-text text-transparent">
+              <h3
+                className="text-2xl md:text-3xl font-serif font-bold bg-clip-text text-transparent"
+                style={{
+                  backgroundImage: `linear-gradient(
+                    to bottom right,
+                    ${theme.borderColor}33,
+                    ${theme.borderColor},
+                    ${theme.borderColor}aa
+                  )`,
+                }}
+              >
                 Travel Services
               </h3>
-              <p className="text-[#d4af37]/60 font-light text-sm tracking-wide">
+              <p
+                className="font-light text-sm tracking-wide"
+                style={{ color: `${theme.textColor}50` }} // 60% opacity
+              >
                 Seamless booking & documentation support
               </p>
             </div>
@@ -173,47 +302,83 @@ const TravelToursSection = () => {
             {travelServices.map((service, index) => (
               <div
                 key={index}
-                className="group relative bg-gradient-to-b from-[#0b0b0b] via-black to-[#0b0b0b] rounded-2xl p-8 border border-[#d4af37]/25 hover:border-[#d4af37]/50 transition-all duration-500 hover:shadow-[0_0_30px_rgba(212,175,55,0.15)] "
+                className="group relative rounded-2xl p-8 transition-all duration-500"
+                style={{
+                  background: `linear-gradient(to bottom, ${theme.hoverColor} , ${theme.hoverColor} ,${theme.hoverColor} )`,
+                  border: `1px solid ${theme.borderColor}40`, // 25% opacity
+                  boxShadow: `0 0 30px ${theme.borderColor}26`, // ~15% opacity
+                }}
+                onMouseEnter={(e) => {
+                  e.currentTarget.style.border = `1px solid ${theme.borderColor}80`; // 50% opacity
+                  e.currentTarget.style.boxShadow = `0 0 30px ${theme.borderColor}33`; // ~20% opacity
+                }}
+                onMouseLeave={(e) => {
+                  e.currentTarget.style.border = `1px solid ${theme.borderColor}40`;
+                  e.currentTarget.style.boxShadow = `0 0 30px ${theme.borderColor}26`;
+                }}
               >
                 {/* Light sweep effect */}
-                <div className="pointer-events-none absolute inset-0 bg-gradient-to-r from-transparent via-[#d4af37]/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
-
+                <div
+                  className="pointer-events-none absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-700"
+                  style={{
+                    animation: "sweep 2s linear infinite",
+                    background: `linear-gradient(to right, 
+                    transparent, 
+                    ${theme.borderColor}0D, 
+                    transparent
+                  )`,
+                  }}
+                />
                 <div className="relative z-10">
-                  <div className="w-16 h-16 rounded-xl bg-gradient-to-br from-[#d4af37]/20 to-transparent border border-[#d4af37]/30 flex items-center justify-center mb-5 group-hover:scale-110 group-hover:border-[#d4af37]/50 transition-all duration-300">
-                    <service.icon className="w-8 h-8 text-[#d4af37]" />
+                  <div
+                    className={`w-16 h-16 rounded-xl border border-${theme.borderColor} flex items-center justify-center mb-5 group-hover:scale-110 group-hover:border-${theme.bgColor} transition-all duration-300`}
+                    style={{
+                      backgroundImage: `linear-gradient(
+                          to bottom right,
+                          ${theme.bgColor}33,
+                          ${theme.borderColor},
+                          ${theme.bgColor}aa
+                        )`,
+                    }}
+                  >
+                    <service.icon className={`w-8 h-8 text-${theme.bgColor}`} />
                   </div>
 
                   <h4 className="text-xl font-serif font-semibold text-white mb-3 group-hover:text-[#f5e7b1] transition-colors duration-300">
                     {service.title}
                   </h4>
 
-                  <p className="text-white/60 mb-5 font-light leading-relaxed text-sm">
+                  <p
+                    className={` mb-5 font-light leading-relaxed text-sm`}
+                    style={{
+                      color: theme.textColor + 20,
+                    }}
+                  >
                     {service.description}
                   </p>
-
-                  <div className="flex items-center gap-2 text-[#d4af37] text-sm font-light tracking-wider group-hover:gap-3 transition-all duration-300">
-                    <span>Book now</span>
-                    <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-                  </div>
                 </div>
               </div>
             ))}
           </div>
-
-          
         </div>
-
-        
       </div>
 
       <style jsx>{`
         @keyframes sweep {
-          0% { transform: translateX(-100%); }
-          100% { transform: translateX(100%); }
+          0% {
+            transform: translateX(-100%);
+          }
+          100% {
+            transform: translateX(100%);
+          }
         }
         @keyframes shimmer {
-          0% { transform: translateX(-100%); }
-          100% { transform: translateX(100%); }
+          0% {
+            transform: translateX(-100%);
+          }
+          100% {
+            transform: translateX(100%);
+          }
         }
       `}</style>
     </section>

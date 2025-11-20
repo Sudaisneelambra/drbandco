@@ -1,7 +1,7 @@
 "use client";
 import { useEffect, useState, useRef } from "react";
 
-const TravelHero = () => {
+const TravelHero = ({goToDestination}:{goToDestination:()=>void}) => {
   const [isVisible, setIsVisible] = useState<boolean>(false);
   const [animationKey, setAnimationKey] = useState<number>(0);
   const heroRef = useRef<HTMLDivElement | null>(null);
@@ -170,9 +170,9 @@ const TravelHero = () => {
             }`}
             style={{ textShadow: "0 2px 10px rgba(0,0,0,0.8)" }}
           >
-            Explore the world&apos;s most breathtaking destinations
+            Explore Eastern Europe & Schengen Countries
             <br />
-            Create memories that last forever
+            Create Lasting Memories
           </p>
 
           <div
@@ -195,6 +195,7 @@ const TravelHero = () => {
               onMouseLeave={(e) => {
                 e.currentTarget.style.boxShadow = "none";
               }}
+              onClick={goToDestination}
             >
               <span className="relative z-10">Explore Destinations</span>
               <div

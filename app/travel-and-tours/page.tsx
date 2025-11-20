@@ -93,14 +93,23 @@ const TravelAndTours = ()=>{
   ];
 
 
+  const goToDestination = ()=>{
+        const element = document.getElementById("destinations");
+        if (element) {
+          element.scrollIntoView({ behavior: "smooth" });
+        }
+  }
+
     return (
         <>
             <div className="mt-4">
-                <TravelHero />
+                <TravelHero goToDestination={goToDestination} />
                 <TravelToursSection/>
-                {destinations.map((destination, index) => (
-                    <DestinationCard key={index} {...destination} />
-                ))}
+                <div className="" id="destinations">
+                  {destinations.map((destination, index) => (
+                      <DestinationCard key={index} {...destination} />
+                  ))}
+                </div>
             </div>
         </>
     )

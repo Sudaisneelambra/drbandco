@@ -187,7 +187,7 @@ function OptimizedServiceCard({ data, index }: { data: ServiceItem; index: numbe
           </div>
 
           {/* Thumbnails */}
-          <div className="mt-3 flex gap-2 overflow-x-auto no-scrollbar justify-center">
+          <div className="mt-3 flex gap-2  no-scrollbar justify-center">
             {data.images.map((img: ImageData, i: number) => (
               <button
                 key={img.src}
