@@ -10,8 +10,8 @@ interface ImageCarouselProps {
     textColor: string;
     borderColor: string;
     hoverColor: string;
-    iconColor: string;
-    buttonColor: string;
+    iconBg: string;
+    buttonText: string;
   };
 }
 const ImageCarousel: React.FC<ImageCarouselProps> = ({ images, theme }) => {
