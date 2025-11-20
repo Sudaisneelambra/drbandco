@@ -4,7 +4,9 @@ import { motion } from "framer-motion";
 
 export default function AutomotiveLogisticsSection() {
   return (
-    <section className="relative py-16 md:py-28 bg-black overflow-hidden">
+    <section
+     id="automotive"
+     className="relative py-16 md:py-28 bg-black overflow-hidden">
       {/* Subtle Background Pattern */}
       <motion.div
         className="absolute inset-0 opacity-[0.03] pointer-events-none"
@@ -52,7 +54,7 @@ export default function AutomotiveLogisticsSection() {
               className="relative rounded-xl overflow-hidden shadow-2xl border border-white/10"
             >
               <img
-                src="https://images.unsplash.com/photo-1542362567-b07e54358753?auto=format&fit=crop&w=1500&q=80"
+                src="cardark.jpeg"
                 alt="Luxury Auto Part"
                 className="w-full h-64 sm:h-80 lg:h-[430px] object-cover"
               />
@@ -78,7 +80,7 @@ export default function AutomotiveLogisticsSection() {
                 className="rounded-xl overflow-hidden shadow-xl border border-white/10"
               >
                 <img
-                  src="https://images.unsplash.com/photo-1592858187642-741a94adbb63?auto=format&fit=crop&w=900&q=80"
+                  src="carinside.jpeg"
                   className="w-full h-40 object-cover"
                 />
               </motion.div>

@@ -4,7 +4,9 @@ import { motion } from "framer-motion";
 
 export default function ElectronicsLogisticsSection() {
   return (
-    <section className="relative py-16 md:py-28 bg-black overflow-hidden">
+    <section
+    id="electronics"
+     className="relative py-16 md:py-28 bg-black overflow-hidden">
 
       {/* Subtle Background Pattern */}
       <motion.div
@@ -129,7 +131,7 @@ export default function ElectronicsLogisticsSection() {
               className="relative rounded-xl overflow-hidden shadow-2xl border border-white/10"
             >
               <img
-                src="https://images.unsplash.com/photo-1581094271901-8022df85f5f0?auto=format&fit=crop&w=1500&q=80"
+                src="electronic.jpeg"
                 alt="High Value Electronics"
                 className="w-full h-64 sm:h-80 lg:h-[450px] object-cover"
               />
@@ -169,7 +171,7 @@ export default function ElectronicsLogisticsSection() {
                 className="rounded-xl overflow-hidden shadow-xl border border-white/10"
               >
                 <img
-                  src="https://images.unsplash.com/photo-1555617117-08ef2854f112?auto=format&fit=crop&w=1000&q=80"
+                  src="electronicrobo.jpeg"
                   className="w-full h-40 object-cover"
                 />
               </motion.div>
