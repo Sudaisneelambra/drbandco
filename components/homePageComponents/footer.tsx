@@ -13,6 +13,31 @@ import {
 } from "lucide-react";
 import Link from "next/link";
 import { useRouter, usePathname } from "next/navigation";
+import Image from "next/image";
+
+  function ImageComponent({ isTravelPage }: { isTravelPage: boolean }) {
+    return isTravelPage ? (
+      <Image
+        src={"/images/logotours.webp"}
+        style={{
+          maxWidth: "140%",
+        }}
+        alt="logo.webp"
+        width={100}
+        height={100}
+      />
+    ) : (
+      <Image
+        src={"/images/mainlogo.webp"}
+        style={{
+          maxWidth: "200%",
+        }}
+        alt="logo.webp"
+        width={100}
+        height={100}
+      />
+    );
+  }
 
 const Footer = () => {
   const footerRef = useRef<HTMLDivElement | null>(null);
@@ -49,6 +74,8 @@ const Footer = () => {
     // Opens WhatsApp in a new tab
     window.open(`https://wa.me/${phoneNumber}?text=${text}`, "_blank");
   };
+
+  
 
   const isTravelPage = pathname === "/travel-and-tours";
 
@@ -100,18 +127,18 @@ const Footer = () => {
                   className="absolute inset-0 rounded-full"
                   style={{ border: `1px solid ${theme.borderColor}33` }} // 20% opacity
                 />
-                <div
+                {/* <div
                   className="absolute inset-2 rounded-full"
                   style={{ border: `1px solid ${theme.borderColor}1A` }} // 10% opacity
-                />
-                <div
-                  className="relative w-12 h-12 rounded-full border-2 flex items-center justify-center"
+                /> */}
+                {/* <div
+                  className="relative w-14 h-14 rounded-full border-2 flex items-center justify-center"
                   style={{
                     borderColor: theme.borderColor, // dynamic border
                     background: `radial-gradient(circle, ${theme.borderColor}20, transparent)`, // gradient using theme
                   }}
-                >
-                  <span
+                > */}
+                  {/* <span
                     className="text-2xl font-serif font-bold text-transparent bg-clip-text"
                     style={{
                       backgroundImage: `linear-gradient(to bottom right, ${theme.borderColor}, ${theme.hoverColor})`,
@@ -119,8 +146,9 @@ const Footer = () => {
                     }}
                   >
                     D
-                  </span>
-                </div>
+                  </span> */}
+                  <ImageComponent isTravelPage={isTravelPage}/>
+                {/* </div> */}
               </div>
 
               <div className="flex items-center space-x-2">

@@ -3,6 +3,31 @@
 import { useState, useEffect } from "react";
 import { Menu, X, ArrowUpRight } from "lucide-react";
 import { useRouter, usePathname } from "next/navigation";
+import Image from "next/image";
+
+function ImageComponent({ isTravelPage }: { isTravelPage: boolean }) {
+  return isTravelPage ? (
+    <Image
+      src={"/images/logotours.webp"}
+      style={{
+        maxWidth: "140%",
+      }}
+      alt="logo.webp"
+      width={100}
+      height={100}
+    />
+  ) : (
+    <Image
+      src={"/images/mainlogo.webp"}
+      style={{
+        maxWidth: "200%",
+      }}
+      alt="logo.webp"
+      width={100}
+      height={100}
+    />
+  );
+}
 
 export default function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -191,7 +216,7 @@ export default function Navbar() {
 
                       {/* Inner Emblem */}
                       <div
-                        className="relative w-10 h-10 md:w-12 md:h-12 rounded-full border-[2px] flex items-center justify-center overflow-hidden group-hover:shadow-[0_0_50px_rgba(212,175,55,0.6)] transition-all duration-700"
+                        className="relative w-12 h-12 md:w-14 md:h-14 rounded-full border-[2px] flex items-center justify-center overflow-hidden group-hover:shadow-[0_0_50px_rgba(212,175,55,0.6)] transition-all duration-700"
                         style={{
                           borderColor: theme.borderColor,
                         }}
@@ -221,7 +246,7 @@ export default function Navbar() {
                         ></div>
 
                         {/* Monogram */}
-                        <div className="relative z-10 text-center">
+                        {/* <div className="relative z-10 text-center">
                           <div
                             className="text-[22px] md:text-[26px] font-serif font-bold leading-none text-transparent bg-clip-text group-hover:scale-110 transition-transform duration-700"
                             style={{
@@ -230,7 +255,8 @@ export default function Navbar() {
                           >
                             D
                           </div>
-                        </div>
+                        </div> */}
+                        <ImageComponent isTravelPage={isTravelPage} />
                       </div>
 
                       {/* Ambient Glow */}
@@ -301,7 +327,11 @@ export default function Navbar() {
 
                     {/* Premium Double Underline */}
                     <div
-                      className={`absolute -bottom-0 left-0 w-0 h-[2px] ${index === storedIndex ? "w-full" : "w-0 group-hover:w-full"} transition-all duration-700`}
+                      className={`absolute -bottom-0 left-0 w-0 h-[2px] ${
+                        index === storedIndex
+                          ? "w-full"
+                          : "w-0 group-hover:w-full"
+                      } transition-all duration-700`}
                       style={{ backgroundColor: theme.borderColor }}
                     >
                       <div
@@ -454,10 +484,13 @@ export default function Navbar() {
                 className="flex items-center justify-center space-x-2 w-full px-8 py-4 rounded-sm text-[11px] font-medium tracking-[0.2em] uppercase text-black transition-all duration-500"
                 style={{
                   background: `linear-gradient(to right, ${theme.borderColor}, ${theme.hoverColor})`,
-                  boxShadow: `0 0 50px rgba(${parseInt(theme.borderColor.slice(1, 3), 16)},${parseInt(
-                    theme.borderColor.slice(3, 5),
+                  boxShadow: `0 0 50px rgba(${parseInt(
+                    theme.borderColor.slice(1, 3),
                     16
-                  )},${parseInt(theme.borderColor.slice(5, 7), 16)}, 0.6)`,
+                  )},${parseInt(theme.borderColor.slice(3, 5), 16)},${parseInt(
+                    theme.borderColor.slice(5, 7),
+                    16
+                  )}, 0.6)`,
                 }}
               >
                 <span>Connect With Us</span>
