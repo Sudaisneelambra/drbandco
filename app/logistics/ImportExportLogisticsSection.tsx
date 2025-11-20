@@ -4,7 +4,9 @@ import { motion } from "framer-motion";
 
 export default function ImportExportLogisticsSection() {
   return (
-    <section className="relative py-16 md:py-28 bg-black overflow-hidden">
+    <section
+     id="import-export"
+     className="relative py-16 md:py-28 bg-black overflow-hidden">
 
       {/* Subtle Background */}
       <motion.div
@@ -54,7 +56,7 @@ export default function ImportExportLogisticsSection() {
               className="relative rounded-xl overflow-hidden shadow-2xl border border-white/10"
             >
               <img
-                src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=1500&q=80"
+                src="importmain.jpeg"
                 alt="Global Logistics"
                 className="w-full h-64 sm:h-80 lg:h-[450px] object-cover"
               />
@@ -79,7 +81,7 @@ export default function ImportExportLogisticsSection() {
                 className="rounded-xl overflow-hidden shadow-xl border border-white/10"
               >
                 <img
-                  src="https://images.unsplash.com/photo-1529070538774-1843cb3265df?auto=format&fit=crop&w=1000&q=80"
+                  src="importplain.jpeg"
                   className="w-full h-40 object-cover"
                 />
               </motion.div>
@@ -92,7 +94,7 @@ export default function ImportExportLogisticsSection() {
                 className="rounded-xl overflow-hidden shadow-xl border border-white/10"
               >
                 <img
-                  src="https://images.unsplash.com/photo-1543165770-2c8f4cbf1d90?auto=format&fit=crop&w=1000&q=80"
+                  src="map.jpeg"
                   className="w-full h-40 object-cover"
                 />
               </motion.div>

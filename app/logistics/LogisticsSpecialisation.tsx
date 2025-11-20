@@ -3,6 +3,10 @@
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence, useScroll, useTransform } from 'framer-motion';
 import { useRef } from 'react';
+import { scrollToElement } from "@/utils/scrollTo";
+import { connectToWhatsapp } from "@/utils/whatsapp";
+
+
 
 export default function PremiumServices() {
   const [activeTab, setActiveTab] = useState(0);
@@ -28,7 +32,7 @@ export default function PremiumServices() {
         "Real-Time GPS Monitoring",
         "White-Glove Handling"
       ],
-      image: "https://images.unsplash.com/photo-1580273916550-e323be2ae537?ixlib=rb-4.0.1&auto=format&fit=crop&w=600&q=80",
+      image: '/specialcar.jpeg',
       stat: "99.8% Delivery Accuracy"
     },
     {
@@ -42,7 +46,7 @@ export default function PremiumServices() {
         "24/7 Real-Time Monitoring",
         "Custom Packaging Solutions"
       ],
-      image: "https://images.unsplash.com/photo-1555774698-0b77e0d5fac6?ixlib=rb-4.0.1&auto=format&fit=crop&w=600&q=80",
+      image: "heroelectronics.jpeg",
       stat: "Zero Security Incidents"
     },
     {
@@ -56,7 +60,7 @@ export default function PremiumServices() {
         "Complete Documentation Handling",
         "Real-Time Shipment Tracking"
       ],
-      image: "https://images.unsplash.com/photo-1542744095-291d1f67b221?ixlib=rb-4.0.1&auto=format&fit=crop&w=600&q=80",
+      image: "importspecial.jpeg",
       stat: "150+ Countries Served"
     }
   ];
@@ -75,10 +79,12 @@ export default function PremiumServices() {
 
   return (
     <motion.section 
-      ref={sectionRef}
-      style={{ opacity, y }}
-      className="relative py-8 sm:py-12 lg:py-20 bg-black overflow-hidden"
-    >
+    id="premium-services"
+    ref={sectionRef}
+    style={{ opacity, y }}
+    className="relative py-8 sm:py-12 lg:py-20 bg-black overflow-hidden"
+  >
+  
       <div className="relative z-10 max-w-6xl lg:max-w-7xl mx-auto px-4 sm:px-6 lg:px-12">
         {/* Header - Matching Mission & Vision Style but keeping your compact layout */}
         <motion.div 
@@ -195,6 +201,7 @@ export default function PremiumServices() {
             <AnimatePresence mode="wait">
               <motion.div
                 key={activeTab}
+                id={`service-${activeTab + 1}`}
                 initial={{ opacity: 0, x: 20 }}
                 animate={{ opacity: 1, x: 0 }}
                 exit={{ opacity: 0, x: -20 }}
@@ -235,21 +242,35 @@ export default function PremiumServices() {
 
                 {/* CTA Buttons - Gold Accent but keeping your mobile layout */}
                 <div className="flex gap-2 lg:gap-4 pt-2 lg:pt-4">
-                  <motion.button 
-                    whileHover={{ scale: 1.02 }}
-                    whileTap={{ scale: 0.98 }}
-                    className="flex-1 px-4 py-2 lg:px-8 lg:py-4 rounded-lg lg:rounded-xl text-[10px] sm:text-xs lg:text-sm font-medium uppercase tracking-wide bg-white/10 border border-white/20 text-white hover:bg-white/20 backdrop-blur-md transition-all duration-300"
-                  >
-                    Get Quote
-                  </motion.button>
+                <motion.button
+  whileHover={{ scale: 1.02 }}
+  whileTap={{ scale: 0.98 }}
+  onClick={() =>
+    scrollToElement(
+      activeTab === 0 ? "automotive" :
+      activeTab === 1 ? "electronics" :
+      "import-export"
+    )
+  }
+  className="flex-1 px-4 py-2 lg:px-8 lg:py-4 rounded-lg lg:rounded-xl text-[10px] sm:text-xs lg:text-sm font-medium uppercase tracking-wide bg-white/10 border border-white/20 text-white hover:bg-white/20 backdrop-blur-md transition-all duration-300"
+>
+  View Details
+</motion.button>
+
                   
-                  <motion.button 
-                    whileHover={{ scale: 1.02 }}
-                    whileTap={{ scale: 0.98 }}
-                    className="flex-1 px-4 py-2 lg:px-8 lg:py-4 rounded-lg lg:rounded-xl text-[10px] sm:text-xs lg:text-sm font-medium uppercase tracking-wide bg-gradient-to-r from-[#d4af37] to-[#a37d24] text-black hover:from-[#e5c158] hover:to-[#b58d2a] transition-all duration-300 shadow-lg"
-                  >
-                    Learn More
-                  </motion.button>
+<motion.button 
+  whileHover={{ scale: 1.02 }}
+  whileTap={{ scale: 0.98 }}
+  onClick={() =>
+    connectToWhatsapp(
+      `Hi, I want to know more about: ${services[activeTab].title}`
+    )
+  }
+  className="flex-1 px-4 py-2 lg:px-8 lg:py-4 rounded-lg lg:rounded-xl text-[10px] sm:text-xs lg:text-sm font-medium uppercase tracking-wide bg-gradient-to-r from-[#d4af37] to-[#a37d24] text-black hover:from-[#e5c158] hover:to-[#b58d2a] transition-all duration-300 shadow-lg"
+>
+  Learn More
+</motion.button>
+
                 </div>
               </motion.div>
             </AnimatePresence>

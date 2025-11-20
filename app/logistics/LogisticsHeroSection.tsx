@@ -1,8 +1,21 @@
 "use client";
 
+import { connectToWhatsapp } from "@/utils/whatsapp";
 import { motion } from "framer-motion";
 
+
 export default function LogisticsHeroSection() {
+
+
+
+  const scrollToServices = () => {
+    const el = document.getElementById("premium-services");
+    if (el) {
+      el.scrollIntoView({ behavior: "smooth" });
+    }
+  };
+
+  
   return (
     <section className="relative h-[90vh] md:h-[90vh] w-full overflow-hidden bg-black">
 
@@ -111,22 +124,23 @@ export default function LogisticsHeroSection() {
           className="flex gap-4 mt-8"
         >
           {/* Mobile: Rectangular | Desktop: Rounded */}
-          <a
-            href="#quote"
-            className="
-              px-6 py-3 
-              text-[11px] sm:text-sm uppercase tracking-[0.18em]
-              border border-[#d4af37]/50 text-[#f5e7b1]
-              backdrop-blur-md transition-all duration-300
-              rounded-md sm:rounded-full
-              hover:border-[#d4af37] hover:shadow-[0_0_15px_rgba(212,175,55,0.25)]
-            "
-          >
-            Request a Quote
-          </a>
+          <button
+  onClick={scrollToServices}
+  className="
+    px-6 py-3 
+    text-[11px] sm:text-sm uppercase tracking-[0.18em]
+    border border-[#d4af37]/50 text-[#f5e7b1]
+    backdrop-blur-md transition-all duration-300
+    rounded-md sm:rounded-full
+    hover:border-[#d4af37] hover:shadow-[0_0_15px_rgba(212,175,55,0.25)]
+  "
+>
+  Our Services
+</button>
 
-          <a
-            href="#contact"
+
+          <button
+            onClick={() => connectToWhatsapp("Hi")}
             className="
               px-6 py-3
               text-[11px] sm:text-sm uppercase tracking-[0.18em]
@@ -139,7 +153,7 @@ export default function LogisticsHeroSection() {
             "
           >
             Speak to a Specialist
-          </a>
+          </button>
         </motion.div>
 
       </div>
