@@ -8,7 +8,7 @@ const ContactSection = () => {
   const [loading, setLoading] = useState(false);
 
   const submitData = (name: string, email: string, message: string) => {
-    const phoneNumber = "919747491562"; // your WhatsApp number with country code
+    const phoneNumber = "995595899374"; // your WhatsApp number with country code
     const text = `Name: ${encodeURIComponent(
       name
     )}%0AEmail: ${encodeURIComponent(email)}%0AMessage: ${encodeURIComponent(

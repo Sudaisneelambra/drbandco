@@ -15,29 +15,29 @@ import Link from "next/link";
 import { useRouter, usePathname } from "next/navigation";
 import Image from "next/image";
 
-  function ImageComponent({ isTravelPage }: { isTravelPage: boolean }) {
-    return isTravelPage ? (
-      <Image
-        src={"/images/logotours.webp"}
-        style={{
-          maxWidth: "140%",
-        }}
-        alt="logo.webp"
-        width={100}
-        height={100}
-      />
-    ) : (
-      <Image
-        src={"/images/mainlogo.webp"}
-        style={{
-          maxWidth: "200%",
-        }}
-        alt="logo.webp"
-        width={100}
-        height={100}
-      />
-    );
-  }
+function ImageComponent({ isTravelPage }: { isTravelPage: boolean }) {
+  return isTravelPage ? (
+    <Image
+      src={"/images/logotours.webp"}
+      style={{
+        maxWidth: "140%",
+      }}
+      alt="logo.webp"
+      width={100}
+      height={100}
+    />
+  ) : (
+    <Image
+      src={"/images/mainlogo.webp"}
+      style={{
+        maxWidth: "200%",
+      }}
+      alt="logo.webp"
+      width={100}
+      height={100}
+    />
+  );
+}
 
 const Footer = () => {
   const footerRef = useRef<HTMLDivElement | null>(null);
@@ -68,14 +68,12 @@ const Footer = () => {
   const supportLinks = ["Help Center", "Privacy Policy", "Terms of Service"];
 
   const connectToWhatsapp = () => {
-    const phoneNumber = "919747491562"; // your WhatsApp number with country code
+    const phoneNumber = "995595899374"; // your WhatsApp number with country code
     const text = `Hi`;
 
     // Opens WhatsApp in a new tab
     window.open(`https://wa.me/${phoneNumber}?text=${text}`, "_blank");
   };
-
-  
 
   const isTravelPage = pathname === "/travel-and-tours";
 
@@ -138,7 +136,7 @@ const Footer = () => {
                     background: `radial-gradient(circle, ${theme.borderColor}20, transparent)`, // gradient using theme
                   }}
                 > */}
-                  {/* <span
+                {/* <span
                     className="text-2xl font-serif font-bold text-transparent bg-clip-text"
                     style={{
                       backgroundImage: `linear-gradient(to bottom right, ${theme.borderColor}, ${theme.hoverColor})`,
@@ -147,7 +145,7 @@ const Footer = () => {
                   >
                     D
                   </span> */}
-                  <ImageComponent isTravelPage={isTravelPage}/>
+                <ImageComponent isTravelPage={isTravelPage} />
                 {/* </div> */}
               </div>
 
@@ -159,13 +157,13 @@ const Footer = () => {
                   }}
                 />
                 <span
-                  className="text-[11px] tracking-[0.3em] font-light uppercase text-transparent bg-clip-text"
+                  className="text-[11px] tracking-[0.3em] font-light  text-transparent bg-clip-text"
                   style={{
                     backgroundImage: `linear-gradient(to right, ${theme.borderColor}, ${theme.hoverColor})`,
                     WebkitBackgroundClip: "text", // for Safari
                   }}
                 >
-                  DrB Group & Co
+                  DrB GROUP & CO
                 </span>
               </div>
               <span
@@ -188,7 +186,9 @@ const Footer = () => {
               {[Facebook, Twitter, Instagram, Linkedin].map((Icon, i) => (
                 <a
                   key={i}
-                  href=""
+                  href="https://www.instagram.com/drbtoursandtravels?igsh=MXVncmRlaXdtNms5dw%3D%3D"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className={`group relative w-9 h-9 flex items-center justify-center border transition-all duration-500`}
                   style={{ borderColor: theme.borderColor + "33" }}
                 >
@@ -285,8 +285,7 @@ const Footer = () => {
             <ul className="space-y-3">
               {supportLinks.map((link) => (
                 <li key={link}>
-                  <a
-                    href=""
+                  <div
                     className="inline-flex cursor-pointer items-center gap-2 group text-[11px] transition-colors duration-500"
                     style={{ color: theme.textColor + 80 }}
                     onMouseEnter={(e) =>
@@ -298,7 +297,7 @@ const Footer = () => {
                   >
                     <span className="tracking-wider">{link}</span>
                     <ArrowUpRight className="w-3 h-3 opacity-0 group-hover:opacity-100 -translate-x-2 group-hover:translate-x-0 transition-all duration-500" />
-                  </a>
+                  </div>
                 </li>
               ))}
             </ul>
@@ -361,38 +360,78 @@ const Footer = () => {
               className="pt-4 space-y-2 border-t"
               style={{ borderColor: theme.borderColor + "1A" }}
             >
-              <a
-                href="tel:+1234567890"
-                className="flex items-center space-x-2 text-[10px] transition-colors duration-300"
-                style={{
-                  color: theme.textColor + "80",
-                }}
-                onMouseEnter={(e) =>
-                  (e.currentTarget.style.color = theme.hoverColor)
-                }
-                onMouseLeave={(e) =>
-                  (e.currentTarget.style.color = theme.textColor + "80")
-                }
-              >
-                <Phone className="w-3.5 h-3.5" />
-                <span className="tracking-wider">+123 456 7890</span>
-              </a>
-              <a
-                href="mailto:info@drbco.com"
-                className="flex items-center space-x-2 text-[10px] transition-colors duration-300"
-                style={{
-                  color: theme.textColor + "80",
-                }}
-                onMouseEnter={(e) =>
-                  (e.currentTarget.style.color = theme.hoverColor)
-                }
-                onMouseLeave={(e) =>
-                  (e.currentTarget.style.color = theme.textColor + "80")
-                }
-              >
-                <Mail className="w-3.5 h-3.5" />
-                <span className="tracking-wider">info@drbco.com</span>
-              </a>
+              <div className="flex gap-4">
+                <a
+                  href="tel:+995595899374"
+                  className="flex items-center space-x-2 text-[10px] transition-colors duration-300"
+                  style={{
+                    color: theme.textColor + "80",
+                  }}
+                  onMouseEnter={(e) =>
+                    (e.currentTarget.style.color = theme.hoverColor)
+                  }
+                  onMouseLeave={(e) =>
+                    (e.currentTarget.style.color = theme.textColor + "80")
+                  }
+                >
+                  <Phone className="w-3.5 h-3.5" />
+                  <span className="tracking-wider">+995595899374</span>
+                </a>
+                <a
+                  href="tel:+995574103345"
+                  className="flex items-center space-x-2 text-[10px] transition-colors duration-300"
+                  style={{
+                    color: theme.textColor + "80",
+                  }}
+                  onMouseEnter={(e) =>
+                    (e.currentTarget.style.color = theme.hoverColor)
+                  }
+                  onMouseLeave={(e) =>
+                    (e.currentTarget.style.color = theme.textColor + "80")
+                  }
+                >
+                  <Phone className="w-3.5 h-3.5" />
+                  <span className="tracking-wider">+995574103345</span>
+                </a>
+              </div>
+              <div className="flex gap-4">
+                <a
+                  href="mailto:drbgroupandco@gmail.com"
+                  className="flex items-center space-x-2 text-[10px] transition-colors duration-300"
+                  style={{
+                    color: theme.textColor + "80",
+                  }}
+                  onMouseEnter={(e) =>
+                    (e.currentTarget.style.color = theme.hoverColor)
+                  }
+                  onMouseLeave={(e) =>
+                    (e.currentTarget.style.color = theme.textColor + "80")
+                  }
+                >
+                  <Mail className="w-3.5 h-3.5" />
+                  <span className="tracking-wider">
+                    drbgroupandco@gmail.com
+                  </span>
+                </a>
+                <a
+                  href="mailto:drbtoursandtravel@gmail.com"
+                  className="flex items-center space-x-2 text-[10px] transition-colors duration-300"
+                  style={{
+                    color: theme.textColor + "80",
+                  }}
+                  onMouseEnter={(e) =>
+                    (e.currentTarget.style.color = theme.hoverColor)
+                  }
+                  onMouseLeave={(e) =>
+                    (e.currentTarget.style.color = theme.textColor + "80")
+                  }
+                >
+                  <Mail className="w-3.5 h-3.5" />
+                  <span className="tracking-wider">
+                    drbtoursandtravel@gmail.com
+                  </span>
+                </a>
+              </div>
             </div>
           </div>
         </div>
@@ -416,10 +455,10 @@ const Footer = () => {
               }}
             />
             <p
-              className="text-[9px] tracking-[0.2em] uppercase"
+              className="text-[9px] tracking-[0.2em] "
               style={{ color: theme.textColor + 80 }}
             >
-              © {currentYear} DrB Group & Co. All rights reserved.
+              © {currentYear} DrB GROUP & CO. All rights reserved.
             </p>
             <div
               className="w-8 h-px"

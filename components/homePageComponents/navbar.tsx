@@ -75,7 +75,7 @@ export default function Navbar() {
   };
 
   const connectToWhatsapp = () => {
-    const phoneNumber = "919747491562"; // your WhatsApp number with country code
+    const phoneNumber = "995595899374"; // your WhatsApp number with country code
     const text = `Hi`;
 
     // Opens WhatsApp in a new tab
@@ -209,14 +209,14 @@ export default function Navbar() {
                         className="absolute inset-0 rounded-full border-[1.5px] group-hover:rotate-180 transition-transform duration-[3000ms] ease-in-out"
                         style={{ borderColor: theme.borderColor + "33" }} // ~20% opacity
                       />
-                      <div
+                      {/* <div
                         className="absolute inset-2 rounded-full border-[1px] group-hover:-rotate-180 transition-transform duration-[3000ms] ease-in-out"
                         style={{ borderColor: theme.borderColor + "1A" }} // ~10% opacity
-                      />
+                      /> */}
 
                       {/* Inner Emblem */}
                       <div
-                        className="relative w-12 h-12 md:w-14 md:h-14 rounded-full border-[2px] flex items-center justify-center overflow-hidden group-hover:shadow-[0_0_50px_rgba(212,175,55,0.6)] transition-all duration-700"
+                        className="relative w-12 h-12 md:w-14 md:h-14 rounded-full border-[1px] flex items-center justify-center overflow-hidden group-hover:shadow-[0_0_50px_rgba(212,175,55,0.6)] transition-all duration-700"
                         style={{
                           borderColor: theme.borderColor,
                         }}
@@ -270,13 +270,13 @@ export default function Navbar() {
                   {/* Brand Name - Horizontal Layout */}
                   <div className="flex flex-col">
                     <span
-                      className="text-[12px] md:text-[14px] tracking-[0.3em] font-light uppercase group-hover:tracking-[0.35em] transition-all duration-700 text-transparent bg-clip-text"
+                      className="text-[12px] md:text-[14px] tracking-[0.3em] font-light  group-hover:tracking-[0.35em] transition-all duration-700 text-transparent bg-clip-text"
                       style={{
                         backgroundColor: theme.hoverColor,
                         WebkitBackgroundClip: "text", // for Safari
                       }}
                     >
-                      DrB GROUP & Co
+                      DrB GROUP & CO
                     </span>
 
                     <span
@@ -432,11 +432,12 @@ export default function Navbar() {
 
         {/* Mobile Menu */}
         <div
-          className={`lg:hidden transition-all duration-700 ${
-            isMobileMenuOpen
-              ? "max-h-screen opacity-100"
-              : "max-h-0 opacity-0 overflow-hidden"
+          className={`lg:hidden overflow-hidden transition-[max-height]  ${
+            isMobileMenuOpen ? "max-h-screen" : "max-h-0"
           }`}
+          style={{
+            opacity: isMobileMenuOpen ? 1 : 0,
+          }}
         >
           <div
             className=" backdrop-blur-3xl border-b"
@@ -458,6 +459,9 @@ export default function Navbar() {
                       goToNavigation(link.target);
                     }}
                     className={`group flex items-center justify-between py-3 border-b border-white/5 hover:border-[${theme.borderColor}4D] transition-all duration-300`}
+                    style={{
+                      color: isTravelPage ? "black" : "white",
+                    }}
                   >
                     <span
                       className={`text-[13px] font-light tracking-[0.25em] uppercase text-${

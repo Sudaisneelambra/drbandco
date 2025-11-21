@@ -18,26 +18,17 @@ const TravelAndTours = ()=>{
 
     const destinations = [
     {
-      subtitle: "Eastern Europe",
+      subtitle: "East European & Asian Countries",
       description:
         "Eastern Europe is a beautiful blend of history, culture, and breathtaking landscapes. From medieval cities to peaceful mountains and charming old towns, this region offers affordable travel, rich traditions, and unforgettable experiences. Perfect for travelers looking for culture, adventure, and amazing value.",
-      highlights: [
-        "Poland",
-        "Czech Republic",
-        "Slovakia",
-        "Hungary",
-        "Romania",
-        "Bulgaria",
-        "Serbia",
-        "Bosnia & Herzegovina",
-        "Montenegro",
-        "North Macedonia",
-        "Albania",
-        "Kosovo",
-        "Moldova",
-        "Ukraine",
-        "Belarus",
-        "Russia"
+      highlights: [       
+        "Georgia",
+        "Armenia",
+        "azerbaijan",
+        "Uzbekistan",
+        "Kazakhstan",
+        "Turkey",
+        "Morocco",
       ],
       images: [
         { src: "/images/eastern-europe.webp", alt: "Georgia landscape" },

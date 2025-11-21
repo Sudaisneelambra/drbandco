@@ -68,7 +68,7 @@ const DestinationCard: React.FC<DestinationCardProps> = ({
   };
 
   const goToWhatsapp = () => {
-    const phoneNumber = "919747491562"; // your WhatsApp number with country code
+    const phoneNumber = "995595899374"; // your WhatsApp number with country code
     const text = `Hi, may i know the more deatils about travel package.`;
 
     // Opens WhatsApp in a new tab
@@ -144,7 +144,7 @@ const DestinationCard: React.FC<DestinationCardProps> = ({
                 {subtitle}
               </p>
               <div
-                className={`h-1 w-20 sm:w-24 bg-gradient-to-r rounded-full transition-all duration-1000 ${
+                className={`h-1 w-24 sm:w-44 bg-gradient-to-r rounded-full transition-all duration-1000 ${
                   isVisible ? "opacity-100 scale-x-100" : "opacity-0 scale-x-0"
                 }`}
                 style={{
