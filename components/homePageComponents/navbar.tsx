@@ -216,7 +216,11 @@ export default function Navbar() {
 
                       {/* Inner Emblem */}
                       <div
-                        className="relative w-12 h-12 md:w-14 md:h-14 rounded-full border-[1px] flex items-center justify-center overflow-hidden group-hover:shadow-[0_0_50px_rgba(212,175,55,0.6)] transition-all duration-700"
+                        className={`
+                          relative w-12 h-12 md:w-14 md:h-14 rounded-full border flex items-center justify-center 
+                          overflow-hidden transition-all duration-700
+                          group-hover:shadow-[0_0_20px_${theme.hoverColor}]
+                        `}
                         style={{
                           borderColor: theme.borderColor,
                         }}

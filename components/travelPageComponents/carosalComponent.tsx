@@ -74,7 +74,7 @@ const ImageCarousel: React.FC<ImageCarouselProps> = ({ images, theme }) => {
             className={`absolute transition-all duration-700 ease-in-out overflow-hidden 
                 ${
                   isActive
-                    ? `rounded-lg shadow-2xl shadow-${theme.borderColor}`
+                    ? `rounded-lg `
                     : "rounded-xl"
                 } 
                 ${
@@ -87,7 +87,6 @@ const ImageCarousel: React.FC<ImageCarouselProps> = ({ images, theme }) => {
               zIndex,
               opacity,
               border: isActive ? `2px solid ${theme.borderColor}` : "none",
-              backgroundColor: "red",
             }}
           >
             <Image
@@ -111,7 +110,7 @@ const ImageCarousel: React.FC<ImageCarouselProps> = ({ images, theme }) => {
           prevSlide();
           resetAutoSlide();
         }}
-        className="absolute left-2 sm:left-0 p-2 sm:p-3 cursor-pointer transition-all duration-300 z-40 hover:scale-110 active:scale-95 shadow-lg shadow-yellow-900/20"
+        className="absolute left-0 sm:left-0 p-2 sm:p-3 cursor-pointer transition-all duration-300 z-40 hover:scale-110 active:scale-95 "
         aria-label="Previous slide"
       >
         <ChevronLeft size={24} style={{
@@ -124,7 +123,7 @@ const ImageCarousel: React.FC<ImageCarouselProps> = ({ images, theme }) => {
           nextSlide();
           resetAutoSlide();
         }}
-        className="absolute right-2 sm:right-0 p-2 sm:p-3 cursor-pointer transition-all duration-300 z-40 hover:scale-110 active:scale-95 shadow-lg shadow-yellow-900/20"
+        className="absolute right-0 sm:right-0 p-2 sm:p-3 cursor-pointer transition-all duration-300 z-40 hover:scale-110 active:scale-95 "
         aria-label="Next slide"
       >
         <ChevronRight size={24} style={{

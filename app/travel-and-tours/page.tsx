@@ -31,10 +31,13 @@ const TravelAndTours = ()=>{
         "Morocco",
       ],
       images: [
-        { src: "/images/eastern-europe.webp", alt: "Georgia landscape" },
-        { src: "/images/eastern-europe1.webp", alt: "Tbilisi city view" },
-        { src: "/images/eastern-europe2.webp", alt: "Caucasus mountains" },
-        { src: "/images/eastern-europe3.webp", alt: "Historic streets" },
+        { src: "/easterner (6).jpeg", alt: "europe image 1" },
+        { src: "/eastern1.jpeg", alt: "europe image 2" },
+        { src: "/eastern2.jpeg", alt: "europe image 3" },
+        { src: "/eastern3.jpeg", alt: "europe image 4" },
+        { src: "/eastern4.jpeg", alt: "europe image 5" },
+
+        
       ],
       amount: "$699",
       threeCountries:false,
@@ -76,6 +79,7 @@ const TravelAndTours = ()=>{
         { src: "/images/eastern-europe1.webp", alt: "Tbilisi city view" },
         { src: "/images/eastern-europe2.webp", alt: "Caucasus mountains" },
         { src: "/images/eastern-europe3.webp", alt: "Historic streets" },
+        { src: "/downloads.jpeg", alt: "Historic streets" },
       ],
       amount: "€1299",
       threeCountries:true,

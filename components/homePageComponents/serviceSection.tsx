@@ -284,9 +284,9 @@ const OptimizedServiceSection = () => {
         "Luxury Accommodation & Transfers"
       ],
       images: [
-        { src: "/images/europe.webp", alt: "Popular Europe destinations" },
-        { src: "/images/london.webp", alt: "London cityscape" },
-        { src: "/images/ponds.webp", alt: "Scenic beauty" },
+        { src: "/travel.jpeg", alt: "Popular Europe destinations" },
+        { src: "/travel2.jpeg", alt: "London cityscape" },
+        { src: "/Travel to France.jpeg", alt: "Scenic beauty" },
       ],
       stats: [
         { label: "Destinations", value: "50+" },
@@ -311,9 +311,9 @@ const OptimizedServiceSection = () => {
         "German Luxury Auto Parts Export"
       ],
       images: [
-        { src: "/images/logistics.webp", alt: "Logistics operations" },
-        { src: "/images/export.webp", alt: "Export services" },
-        { src: "/images/transport.webp", alt: "Air cargo transport" },
+        { src: "/importmain.jpeg", alt: "Logistics operations" },
+        { src: "/importplain.jpeg", alt: "Export services" },
+        { src: "/importspecial.jpeg", alt: "Air cargo transport" },
       ],
       stats: [
         { label: "Countries", value: "4" },
